@@ -21,43 +21,43 @@ This aplication developed for Briss
 ## Setup 🚀
 
 ### Step 1
-Download projec
+Download the project
 
-###Step 2
-Create database db_brisapp
+### Step 2
+Create database db_brisapp (mysql)
 
-###Step 3
+### Step 3
 Open Code Editor
 
 ### Step 4
 Open the terminal in Visual Studio Code
 
 ### Step 5
-Writte in console 
+Write in terminal
 ````
 composer install
 ````
 
 ### Step 6
-Writte in console 
+Write in terminal
 ````
 cp .env.example .env
 ````
 
 ### Step 7
-Writte in console 
+Write in terminal
 ````
 php artisan key:generate
 ````
 
 ### Step 8
-Writte in console 
+Write in terminal
 ````
 php artisan migrate
 ````
 
 ### Step 9
-Writte in console 
+Write in terminal
 ````
 php artisan serve
 ````
@@ -66,6 +66,6 @@ php artisan serve
 Enjoy the project my friend
 
 #### Follow me 👨‍💻
-* [GitHub/moisesarrona](https://github.com/MoisesArrona/) - GitHub Software Enginer
+* [GitHub/moisesarrona](https://github.com/MoisesArrona/) - GitHub - Software Enginer
 
-* [Instagram/moisesarrona](https://www.instagram.com/moisesarrona/) - InstgramSoftware Enginer
+* [Instagram/moisesarrona](https://www.instagram.com/moisesarrona/) - Instgram - Software Enginer
