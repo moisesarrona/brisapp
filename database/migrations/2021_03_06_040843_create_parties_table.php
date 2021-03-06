@@ -15,8 +15,8 @@ class CreatePartiesTable extends Migration
     {
         Schema::create('parties', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('customer_id')->constrained('customers');
-            $table->foreignId('package_id')->constrained('packages');
+            $table->foreignId('customer_id')->nullable()->constrained('customers')->onDelete('set null');
+            $table->foreignId('package_id')->nullable()->constrained('packages')->onDelete('set null');
             $table->date('date');
             $table->integer('kid');
             $table->boolean('status');

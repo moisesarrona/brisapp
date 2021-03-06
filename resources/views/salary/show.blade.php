@@ -9,15 +9,12 @@
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <strong class="card-title mb-3">Producto</strong>
+                                <strong class="card-title mb-3">Salario</strong>
                             </div>
                             <div class="card-body">
-                                <div class="card-text text-sm-center">
-                                    <p>Producto</p>
-                                    <p>Codigo</p>
-                                    <p>Precio</p>
-                                    <p>Existencia</p>
-                                    <p>Descripcion</p>
+                                <div class="card-text text-sm-left">
+                                    <p>Puesto: {{ $salary->name }}</p>
+                                    <p>Salario: {{ $salary->salary }}</p>
                                 </div>
                             </div>
                         </div>

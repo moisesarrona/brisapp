@@ -1,7 +1,7 @@
 <!-- MENU SIDEBAR-->
 <aside class="menu-sidebar2">
     <div class="logo">
-        <a href="#">
+        <a href="/">
             <img src=" {{ asset ('assets/images/icon/logo-white.png') }}" alt="Cool Admin" />
         </a>
     </div>
@@ -10,30 +10,30 @@
             <div class="image img-cir img-120">
                 <img src=" {{ asset ('assets/images/icon/avatar-big-01.jpg') }}" alt="John Doe" />
             </div>
-            <h4 class="name">john doe</h4>
-            <a href="#">Sign out</a>
+            <h4 class="name">Administrador</h4>
+            <a href="#">Cerrar Sesión</a>
         </div>
         <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
-                <li>
-                    <a href="inbox.html">
-                        <i class="fas fa-chart-bar"></i>Empleados</a>
-                    <span class="inbox-num">3</span>
+                <li class="{{ request()->routeIs('employee.*') ? 'active' : '' }}">
+                    <a href="{{ route('employee.index') }}">
+                        <i class="fas fa-suitcase"></i>Empleados</a>
+                        <!--<span class="inbox-num">3</span>-->
                 </li>
-                <li>
-                    <a href="inbox.html">
-                        <i class="fas fa-chart-bar"></i>Fiestas</a>
-                    <span class="inbox-num">3</span>
+
+                <li class="{{ request()->routeIs('product.*') ? 'active' : '' }}">
+                    <a href="{{ route('product.index') }}">
+                        <i class="fas fa-truck"></i>Almacen</a>
                 </li>
-                <li>
-                    <a href="inbox.html">
-                        <i class="fas fa-chart-bar"></i>Almacen</a>
-                    <span class="inbox-num">3</span>
+
+                <li class="{{ request()->routeIs('party.*') ? 'active' : '' }}">
+                    <a href="{{ route('party.index') }}">
+                        <i class="fa fa-tags"></i>Fiestas</a>
                 </li>
-                <li>
-                    <a href="inbox.html">
-                        <i class="fas fa-chart-bar"></i>Clientes</a>
-                    <span class="inbox-num">3</span>
+
+                <li class="{{ request()->routeIs('customer.*') ? 'active' : '' }}">
+                    <a href="{{ route('customer.index') }}">
+                        <i class="fa fa-users"></i>Clientes</a>
                 </li>
             </ul>
         </nav>

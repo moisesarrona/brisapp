@@ -19,19 +19,19 @@
                                         <i class="fa fa-map-marker"></i> California, United States</div>
                                 </div>
                                 <hr>
-                                <div class="card-text text-sm-center">
-                                    <p>Nombre</p>
-                                    <p>Apellido</p>
-                                    <p>Fecha de nacimiento</p>
-                                    <p>Sexo</p>
-                                    <p>Telefono</p>
-                                    <p>Correo</p>
-                                    <p>Salario</p>
-                                    <p>Domicilio</p>
-                                    <p>NSS</p>
-                                    <p>Curp</p>
-                                    <p>Estado Civil</p>
-                                    <p>Estatus</p>
+                                <div class="card-text text-sm-left">
+                                    <p>Nombre: {{ $employee->name }}</p>
+                                    <p>Apellido: {{ $employee->lastname }}</p>
+                                    <p>Fecha de nacimiento: {{ $employee->birthdate }}</p>
+                                    <p>Sexo: {{ $employee->sex }}</p>
+                                    <p>Telefono: {{ $employee->phone }}</p>
+                                    <p>Correo: {{ $employee->email }}</p>
+                                    <p>Salario: {{ $employee->salary->salary }}</p>
+                                    <p>Domicilio: {{ $employee->address }}</p>
+                                    <p>NSS: {{ $employee->nss }}</p>
+                                    <p>Curp: {{ $employee->curp }}</p>
+                                    <p>Estado Civil: {{ $employee->mariel_s }}</p>
+                                    <p>Estatus: {{ $employee->status }}</p>
                                 </div>
                             </div>
                         </div>

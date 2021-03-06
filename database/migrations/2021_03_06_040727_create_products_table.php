@@ -17,10 +17,10 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('code', 150);
-            $table->decimal('price', 5,2);
+            $table->decimal('price', 10,2);
             $table->integer('amount');
             $table->text('description', 150);
-            $table->foreignId('provide_id')->constrained('providers');
+            $table->foreignId('provider_id')->nullable()->constrained('providers')->onDelete('set null');
             $table->boolean('status');
             $table->timestamps();
         });
