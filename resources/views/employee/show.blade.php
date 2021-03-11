@@ -5,6 +5,20 @@
     <section class="statistic">
         <div class="section__content section__content--p30">
             <div class="container-fluid">
+                <!-- Buttons -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-data__tool">
+                            <div class="table-data__tool-left">
+                                <a href="{{ route('employee.index') }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                                    Regresar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Information -->
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
@@ -12,26 +26,49 @@
                                 <strong class="card-title mb-3">Empleado</strong>
                             </div>
                             <div class="card-body">
-                                <div class="mx-auto d-block">
+                                <div class="mx-auto d-block text-center">
                                     <img class="rounded-circle mx-auto d-block" src=" {{ asset ('assets/images/icon/avatar-big-01.jpg') }} " alt="Card image cap">
-                                    <h5 class="text-sm-center mt-2 mb-1">Steven Lee</h5>
+                                    <h5 class="text-sm-center mt-2 mb-1">{{ $employee->name }} {{ $employee->lastname }}</h5>
+                                    <span class="badge badge-success text-sm-center">{{ $employee->status }}</span>
                                     <div class="location text-sm-center">
-                                        <i class="fa fa-map-marker"></i> California, United States</div>
                                 </div>
                                 <hr>
                                 <div class="card-text text-sm-left">
-                                    <p>Nombre: {{ $employee->name }}</p>
-                                    <p>Apellido: {{ $employee->lastname }}</p>
-                                    <p>Fecha de nacimiento: {{ $employee->birthdate }}</p>
-                                    <p>Sexo: {{ $employee->sex }}</p>
-                                    <p>Telefono: {{ $employee->phone }}</p>
-                                    <p>Correo: {{ $employee->email }}</p>
-                                    <p>Salario: {{ $employee->salary->salary }}</p>
-                                    <p>Domicilio: {{ $employee->address }}</p>
-                                    <p>NSS: {{ $employee->nss }}</p>
-                                    <p>Curp: {{ $employee->curp }}</p>
-                                    <p>Estado Civil: {{ $employee->mariel_s }}</p>
-                                    <p>Estatus: {{ $employee->status }}</p>
+                                    <h5>{{ $employee->birthdate }}</h5>
+                                    <span class="small">Fecha de nacimiento</span>
+                                    <br>
+
+                                    <h5>{{ $employee->sex }}</h5>
+                                    <span class="small">Sexo</span>
+                                    <br>
+
+                                    <h5>{{ $employee->phone }}</h5>
+                                    <span class="small">Telefono</span>
+                                    <br>
+
+                                    <h5>{{ $employee->email }}</h5>
+                                    <span class="small">Correo</span>
+                                    <br>
+
+                                    <h5>{{ $employee->salary->salary }}</h5>
+                                    <span class="small">Salario</span>
+                                    <br>
+
+                                    <h5>{{ $employee->address }}</h5>
+                                    <span class="small">Domicilio</span>
+                                    <br>
+
+                                    <h5>{{ $employee->nss }}</h5>
+                                    <span class="small">NSS</span>
+                                    <br>
+
+                                    <h5>{{ $employee->curp }}</h5>
+                                    <span class="small">CURP</span>
+                                    <br>
+
+                                    <h5>{{ $employee->marital_s }}</h5>
+                                    <span class="small">Estado Civil</span>
+                                    <br>
                                 </div>
                             </div>
                         </div>

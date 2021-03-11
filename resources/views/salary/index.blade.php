@@ -9,9 +9,10 @@
                     <div class="col-md-12">
                         <!-- Data Table -->
                         <h3 class="title-5 m-b-35">Salario</h3>
+                        <!-- Buttons -->
                         <div class="table-data__tool">
                             <div class="table-data__tool-left">
-                                <a href="{{ URL::previous() }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                                <a href="{{ route('employee.index') }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
                                     Regresar
                                 </a>
                             </div>
@@ -21,6 +22,8 @@
                                 </button>
                             </div>
                         </div>
+
+                        <!-- Table -->
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data2">
                                 <thead>
@@ -65,7 +68,7 @@
                                                                                 </div>
                                                     
                                                                                 <div class="form-group col-6">
-                                                                                    <label for="salary" class=" form-control-label">Salario</label>
+                                                                                    <label for="salary" class=" form-control-label">Salario al mes</label>
                                                                                     <input type="number" id="salary" name="salary" class="form-control" value="{{ $salary->salary }}">
                                                                                 </div>
                                                                             </div>
@@ -133,7 +136,7 @@
                                 </div>
     
                                 <div class="form-group col-6">
-                                    <label for="salary" class=" form-control-label">Salario</label>
+                                    <label for="salary" class=" form-control-label">Salario al mes</label>
                                     <input type="number" id="salary" name="salary" class="form-control">
                                 </div>
                             </div>

@@ -45,7 +45,11 @@
                                             <td>{{ $party->date }}</td>
                                             <td>{{ $party->kid }}</td>
                                             <td>
-                                                <span class="status--process">Activo</span>
+                                                @if ($party->status == 1)
+                                                    <span class="status--process">{{ $party->status }}</span>
+                                                @else
+                                                    <span class="status--denied">{{ $party->status }}</span>
+                                                @endif
                                             </td>
                                             <td>
                                                 <div class="table-data-feature">
@@ -101,7 +105,7 @@
                                                                                 </div>
 
                                                                                 <div class="form-group col-6">
-                                                                                    <label for="kid" class=" form-control-label">Niños</label>
+                                                                                    <label for="kid" class=" form-control-label">Numero de Niños</label>
                                                                                     <input type="number" id="kid" name="kid" class="form-control" value="{{ $party->kid }}">
                                                                                 </div>
                                                                             </div>
@@ -119,7 +123,7 @@
                                                     </div>
 
                                                     <!-- Delete -->
-                                                    <form action="{{ route('package.destroy', $package) }}" method="POST">
+                                                    <form action="{{ route('party.destroy', $party) }}" method="POST">
                                                         @csrf
                                                         @method('delete')
                                                         <button class="item" type="submit">
@@ -128,7 +132,7 @@
                                                     </form>
 
                                                     <!-- More -->
-                                                    <a href="{{ route ('package.show', $package) }}" class="item">
+                                                    <a href="{{ route ('party.show', $party) }}" class="item">
                                                         <i class="zmdi zmdi-more"></i>
                                                     </a>
                                                 </div>
@@ -191,7 +195,7 @@
                                     <input type="date" id="date" name="date" class="form-control">
                                 </div>
                                 <div class="form-group col-6">
-                                    <label for="kid" class=" form-control-label">Niños</label>
+                                    <label for="kid" class=" form-control-label">Numero de Niños</label>
                                     <input type="number" id="kid" name="kid" class="form-control">
                                 </div>
                             </div>

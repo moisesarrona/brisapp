@@ -9,6 +9,8 @@
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
                         <h3 class="title-5 m-b-35">Producto</h3>
+
+                        <!-- Buttons -->
                         <div class="table-data__tool">
                             <div class="table-data__tool-left">
                                 <div class="table-data__tool-left">
@@ -23,6 +25,8 @@
                                 </button>
                             </div>
                         </div>
+
+                        <!-- Table -->
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data2">
                                 <thead>
@@ -58,7 +62,7 @@
                                                                     @method('put')
                                                                     <!-- Head -->
                                                                     <div class="card-header">
-                                                                        <strong>Agregar Producto</strong>
+                                                                        <strong>Editar Producto</strong>
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
@@ -81,7 +85,7 @@
                                                     
                                                                             <div class="row">
                                                                                 <div class="form-group col-6">
-                                                                                    <label for="price" class=" form-control-label">Precio</label>
+                                                                                    <label for="price" class=" form-control-label">Precio por unidad</label>
                                                                                     <input type="number" id="price" name="price" class="form-control" value="{{ $product->price }}">
                                                                                 </div>
                                                     
@@ -183,7 +187,7 @@
     
                             <div class="row">
                                 <div class="form-group col-6">
-                                    <label for="price" class=" form-control-label">Precio</label>
+                                    <label for="price" class=" form-control-label">Precio por unidad</label>
                                     <input type="number" id="price" name="price" class="form-control">
                                 </div>
     

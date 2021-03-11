@@ -35,7 +35,7 @@
 
 </head>
 
-<body class="animsition">
+<body class="animsitio">
     <div class="page-wrapper">
         <!-- MENU SIDEBAR-->
         @include('layouts.sidebar')

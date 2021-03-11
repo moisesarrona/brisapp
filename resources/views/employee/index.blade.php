@@ -9,6 +9,8 @@
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
                         <h3 class="title-5 m-b-35">Empleados</h3>
+
+                        <!-- Buttons -->
                         <div class="table-data__tool">
                             <div class="table-data__tool-left">
                                 <a href="{{ route('salary.index') }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
@@ -21,6 +23,8 @@
                                 </button>
                             </div>
                         </div>
+
+                        <!-- Table -->
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data2">
                                 <thead>
@@ -41,7 +45,11 @@
                                             <td>{{ $employee->birthdate }}</td>
                                             <td>{{ $employee->sex }}</td>
                                             <td>
-                                                <span class="status--process">{{ $employee->status }}</span>
+                                                @if ($employee->status == 1)
+                                                    <span class="status--process">{{ $employee->status }}</span>
+                                                @else
+                                                    <span class="status--denied">{{ $employee->status }}</span>
+                                                @endif
                                             </td>
                                             <td>
                                                 <div class="table-data-feature">
@@ -58,7 +66,7 @@
                                                                     @method('put')
                                                                     <!-- Head -->
                                                                     <div class="card-header">
-                                                                        <strong>Agregar Empleado</strong>
+                                                                        <strong>Editar Empleado</strong>
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>

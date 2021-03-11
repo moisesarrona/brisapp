@@ -9,9 +9,11 @@
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
                         <h3 class="title-5 m-b-35">Paquete</h3>
+
+                        <!-- Buttons -->
                         <div class="table-data__tool">
                             <div class="table-data__tool-left">
-                                <a href="{{ URL::previous() }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                                <a href="{{ route ('package.index') }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
                                     Regresar
                                 </a>
                             </div>
@@ -21,6 +23,8 @@
                                 </button>
                             </div>
                         </div>
+
+                        <!-- Table -->
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data2">
                                 <thead>
@@ -56,7 +60,7 @@
                                                                     @method('put')
                                                                     <!-- Head -->
                                                                     <div class="card-header">
-                                                                        <strong>Agregar Paquete</strong>
+                                                                        <strong>Editar Paquete</strong>
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
@@ -72,7 +76,7 @@
                                                                                 </div>
                                                 
                                                                                 <div class="form-group col-6">
-                                                                                    <label for="discount" class=" form-control-label">Descuento</label>
+                                                                                    <label for="discount" class=" form-control-label">Descuento en $</label>
                                                                                     <input type="number" id="discount" name="discount" class="form-control" value="{{ $package->discount }}">
                                                                                 </div>
                                                                             </div>
@@ -183,7 +187,7 @@
                                 </div>
 
                                 <div class="form-group col-6">
-                                    <label for="discount" class=" form-control-label">Descuento</label>
+                                    <label for="discount" class=" form-control-label">Descuento en $</label>
                                     <input type="number" id="discount" name="discount" class="form-control">
                                 </div>
                             </div>

@@ -9,9 +9,11 @@
                     <div class="col-md-12">
                         <!-- DATA TABLE -->
                         <h3 class="title-5 m-b-35">Proveedores</h3>
+
+                        <!-- Buttons -->
                         <div class="table-data__tool">
                             <div class="table-data__tool-left">
-                                <a href="{{ URL::previous() }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                                <a href="{{ route('product.index') }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
                                     Regresar
                                 </a>
                             </div>
@@ -21,6 +23,8 @@
                                 </button>
                             </div>
                         </div>
+
+                        <!-- Table -->
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data2">
                                 <thead>
@@ -43,7 +47,11 @@
                                             </td>
                                             <td>{{ $provider->phone }}</td>
                                             <td>
-                                                <span class="status--process">{{ $provider->status }}</span>
+                                                @if ($provider->status == 1)
+                                                    <span class="status--process">{{ $provider->status }}</span>
+                                                @else
+                                                    <span class="status--denied">{{ $provider->status }}</span>
+                                                @endif
                                             </td>
                                             <td>
                                                 <div class="table-data-feature">
@@ -60,7 +68,7 @@
                                                                     @method('put')
                                                                     <!-- Head -->
                                                                     <div class="card-header">
-                                                                        <strong>Agregar Proveedor</strong>
+                                                                        <strong>Editar Proveedor</strong>
                                                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
