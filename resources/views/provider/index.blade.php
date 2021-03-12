@@ -1,6 +1,9 @@
 @extends('layouts.templeate')
 
 @section('content')
+    <!-- Error -->
+    @include('layouts.error')
+
     <!-- Contenido Principal -->
     <section class="statistic">
         <div class="section__content--p30">
@@ -81,11 +84,17 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="business_n" class=" form-control-label">Razón Social</label>
                                                                                     <input type="text" id="business_n" name="business_n" class="form-control" value="{{ $provider->business_n }}">
+                                                                                    @error('business_n')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                     
                                                                                 <div class="form-group col-6">
                                                                                     <label for="rfc" class=" form-control-label">RFC</label>
                                                                                     <input type="text" id="rfc" name="rfc" class="form-control" value="{{ $provider->rfc }}">
+                                                                                    @error('rfc')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                                             
@@ -93,10 +102,16 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="email" class=" form-control-label">Correo</label>
                                                                                     <input type="email" id="email" name="email" class="form-control" value="{{ $provider->email }}">
+                                                                                    @error('email')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                                 <div class="form-group col-6">
                                                                                     <label for="phone" class=" form-control-label">Telefono</label>
                                                                                     <input type="tel" id="phone" name="phone" class="form-control" value="{{ $provider->phone}}">
+                                                                                    @error('phone')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -160,11 +175,17 @@
                                 <div class="form-group col-6">
                                     <label for="business_n" class=" form-control-label">Razón Social</label>
                                     <input type="text" id="business_n" name="business_n" class="form-control">
+                                    @error('business_n')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
     
                                 <div class="form-group col-6">
                                     <label for="rfc" class=" form-control-label">RFC</label>
                                     <input type="text" id="rfc" name="rfc" class="form-control">
+                                    @error('rfc')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
                             </div>
                             
@@ -172,10 +193,16 @@
                                 <div class="form-group col-6">
                                     <label for="email" class=" form-control-label">Correo</label>
                                     <input type="email" id="email" name="email" class="form-control">
+                                    @error('email')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="phone" class=" form-control-label">Telefono</label>
                                     <input type="tel" id="phone" name="phone" class="form-control">
+                                    @error('phone')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

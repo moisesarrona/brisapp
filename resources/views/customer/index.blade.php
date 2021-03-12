@@ -1,7 +1,10 @@
 @extends('layouts.templeate')
 
 @section('content')
-    <!-- MAIN CONTENT-->
+    <!-- Error -->
+    @include('layouts.error')
+
+    <!-- Contenido Principal -->
     <section class="statistic">
         <div class="section__content--p30">
             <div class="container-fluid">
@@ -79,11 +82,17 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="name" class=" form-control-label">Cliente</label>
                                                                                     <input type="text" id="name" name="name" class="form-control" value="{{ $customer->name }}">
+                                                                                    @error('name')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                 
                                                                                 <div class="form-group col-6">
                                                                                     <label for="lastname" class=" form-control-label">Apellido</label>
                                                                                     <input type="text" id="lastname" name="lastname" class="form-control" value="{{ $customer->lastname }}">
+                                                                                    @error('lastname')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                 
@@ -91,11 +100,17 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="email" class=" form-control-label">Correo</label>
                                                                                     <input type="email" id="email" name="email" class="form-control" value="{{ $customer->email }}">
+                                                                                    @error('email')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                 
                                                                                 <div class="form-group col-6">
                                                                                     <label for="phone" class=" form-control-label">Telefono</label>
                                                                                     <input type="tel" id="phone" name="phone" class="form-control" value="{{ $customer->phone }}">
+                                                                                    @error('phone')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -159,11 +174,17 @@
                                 <div class="form-group col-6">
                                     <label for="name" class=" form-control-label">Cliente</label>
                                     <input type="text" id="name" name="name" class="form-control">
+                                    @error('name')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group col-6">
                                     <label for="lastname" class=" form-control-label">Apellido</label>
                                     <input type="text" id="lastname" name="lastname" class="form-control">
+                                    @error('lastname')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -171,11 +192,17 @@
                                 <div class="form-group col-6">
                                     <label for="email" class=" form-control-label">Correo</label>
                                     <input type="email" id="email" name="email" class="form-control">
+                                    @error('email')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group col-6">
                                     <label for="phone" class=" form-control-label">Telefono</label>
                                     <input type="tel" id="phone" name="phone" class="form-control">
+                                    @error('phone')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

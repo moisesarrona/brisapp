@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Provider;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
@@ -21,7 +22,7 @@ class ProductController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(ProductRequest $request)
     {
         $status = 1;
         $request->request->add(['status' => $status]);
@@ -39,7 +40,7 @@ class ProductController extends Controller
         //
     }
 
-    public function update(Request $request, Product $product)
+    public function update(ProductRequest $request, Product $product)
     {
         $product->update($request->all());
         return redirect()->route('product.index');

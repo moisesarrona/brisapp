@@ -1,6 +1,9 @@
 @extends('layouts.templeate')
 
 @section('content')
+    <!-- Error -->
+    @include('layouts.error')
+
     <!-- Contenido Principal -->
     <section class="statistic">
         <div class="section__content--p30">
@@ -65,11 +68,17 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="name" class=" form-control-label">Puesto</label>
                                                                                     <input type="text" id="name" name="name" class="form-control" value="{{ $salary->name }}">
+                                                                                    @error('name')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                     
                                                                                 <div class="form-group col-6">
                                                                                     <label for="salary" class=" form-control-label">Salario al mes</label>
                                                                                     <input type="number" id="salary" name="salary" class="form-control" value="{{ $salary->salary }}">
+                                                                                    @error('name')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -133,11 +142,17 @@
                                 <div class="form-group col-6">
                                     <label for="name" class=" form-control-label">Puesto</label>
                                     <input type="text" id="name" name="name" class="form-control">
+                                    @error('name')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
     
                                 <div class="form-group col-6">
                                     <label for="salary" class=" form-control-label">Salario al mes</label>
                                     <input type="number" id="salary" name="salary" class="form-control">
+                                    @error('salary')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\Salary;
 use Illuminate\Http\Request;
+use App\Http\Requests\EmployeeRequest;
 
 class EmployeeController extends Controller
 {
@@ -20,7 +21,7 @@ class EmployeeController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(EmployeeRequest $request)
     {
         $status = 1;
         $request->request->add(['status' => $status]);
@@ -39,7 +40,7 @@ class EmployeeController extends Controller
         //
     }
 
-    public function update(Request $request, Employee $employee)
+    public function update(EmployeeRequest $request, Employee $employee)
     {
         $employee->update($request->all());
         return redirect()->route('employee.index');

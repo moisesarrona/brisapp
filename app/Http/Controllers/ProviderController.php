@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Provider;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProviderRequest;
 
 class ProviderController extends Controller
 {
@@ -18,7 +19,7 @@ class ProviderController extends Controller
     {
         //
     }
-    public function store(Request $request)
+    public function store(ProviderRequest $request)
     {
         $status = 1;
         $request->request->add(['status' => $status]);
@@ -49,7 +50,7 @@ class ProviderController extends Controller
      * @param  \App\Models\Provider  $provider
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Provider $provider)
+    public function update(ProviderRequest $request, Provider $provider)
     {
         $provider->update($request->all());
         return redirect()->route('provider.index');

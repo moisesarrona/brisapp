@@ -1,6 +1,9 @@
 @extends('layouts.templeate')
 
 @section('content')
+    <!-- Error -->
+    @include('layouts.error')
+    
     <!-- MAIN CONTENT-->
     <section class="statistic">
         <div class="section__content--p30">
@@ -75,11 +78,17 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="name" class=" form-control-label">Producto</label>
                                                                                     <input type="text" id="name" name="name" class="form-control" value="{{ $product->name }}">
+                                                                                    @error('name')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                     
                                                                                 <div class="form-group col-6">
                                                                                     <label for="code" class=" form-control-label">Codigo</label>
                                                                                     <input type="text" id="code" name="code" class="form-control" value="{{ $product->code }}">
+                                                                                    @error('code')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                     
@@ -87,11 +96,17 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="price" class=" form-control-label">Precio por unidad</label>
                                                                                     <input type="number" id="price" name="price" class="form-control" value="{{ $product->price }}">
+                                                                                    @error('price')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                     
                                                                                 <div class="form-group col-6">
                                                                                     <label for="amount" class=" form-control-label">Existencia</label>
                                                                                     <input type="number" id="amount" name="amount" class="form-control" value="{{ $product->amount }}">
+                                                                                    @error('amount')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                     
@@ -100,11 +115,15 @@
                                                                                     <label for="provider_id" class=" form-control-label">Proveedor</label>
                                                                                     <div>
                                                                                         <select name="provider_id" id="provider_id" class="form-control">
+                                                                                            <option selected="true" disabled="disabled">Selecione el Proveedor</option>
                                                                                             @foreach ($providers as $provider)
-                                                                                            <option value="{{ $provider->id }}">{{ $provider->business_n }}</option>
+                                                                                            <option value="{{ $provider->id }}" {{ $provider->id == $product->provider_id ? 'selected' : '' }}>{{ $provider->business_n }}</option>
                                                                                             @endforeach
                                                                                         </select>
                                                                                     </div>
+                                                                                    @error('provider_id')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                     
@@ -114,6 +133,9 @@
                                                                                     <div class="">
                                                                                         <textarea name="description" id="description" rows="5" placeholder="Content..." class="form-control">{{ $product->description }}</textarea>
                                                                                     </div>
+                                                                                    @error('description')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -177,11 +199,17 @@
                                 <div class="form-group col-6">
                                     <label for="name" class=" form-control-label">Producto</label>
                                     <input type="text" id="name" name="name" class="form-control">
+                                    @error('name')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
     
                                 <div class="form-group col-6">
                                     <label for="code" class=" form-control-label">Codigo</label>
                                     <input type="text" id="code" name="code" class="form-control">
+                                    @error('code')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
                             </div>
     
@@ -189,11 +217,17 @@
                                 <div class="form-group col-6">
                                     <label for="price" class=" form-control-label">Precio por unidad</label>
                                     <input type="number" id="price" name="price" class="form-control">
+                                    @error('price')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
     
                                 <div class="form-group col-6">
                                     <label for="amount" class=" form-control-label">Existencia</label>
                                     <input type="number" id="amount" name="amount" class="form-control">
+                                    @error('amount')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
                             </div>
     
@@ -202,11 +236,15 @@
                                     <label for="provider_id" class=" form-control-label">Proveedor</label>
                                     <div>
                                         <select name="provider_id" id="provider_id" class="form-control">
+                                            <option selected="true" disabled="disabled">Selecione el Proveedor</option>
                                             @foreach ($providers as $provider)
                                             <option value="{{ $provider->id }}">{{ $provider->business_n }}</option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    @error('provider_id')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
                             </div>
     
@@ -216,6 +254,9 @@
                                     <div class="">
                                         <textarea name="description" id="description" rows="5" placeholder="Content..." class="form-control"></textarea>
                                     </div>
+                                    @error('description')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Package;
 use Illuminate\Http\Request;
+use App\Http\Requests\PackageRequest;
 
 class PackageController extends Controller
 {
@@ -19,7 +20,7 @@ class PackageController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(PackageRequest $request)
     {
         Package::create($request->all());
         return redirect()->route('package.index');
@@ -35,7 +36,7 @@ class PackageController extends Controller
         //
     }
 
-    public function update(Request $request, Package $package)
+    public function update(PackageRequest $request, Package $package)
     {
         $package->update($request->all());
         return redirect()->route('package.index');

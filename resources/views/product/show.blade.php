@@ -46,6 +46,10 @@
                                     <h5>{{ $product->description }}</h5>
                                     <span class="small">Description</span>
                                     <br>
+
+                                    <h5>{{ $product->provider->business_n }}</h5>
+                                    <span class="small">Proveedor</span>
+                                    <br>
                                 </div>
                             </div>
                         </div>

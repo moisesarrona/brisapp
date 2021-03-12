@@ -6,6 +6,7 @@ use App\Models\Party;
 use App\Models\Customer;
 use App\Models\Package;
 use Illuminate\Http\Request;
+use App\Http\Requests\PartyRequest;
 
 class PartyController extends Controller
 {
@@ -23,7 +24,7 @@ class PartyController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(PartyRequest $request)
     {
         $status = 1;
         $request->request->add(['status' => $status]);
@@ -42,7 +43,7 @@ class PartyController extends Controller
         //
     }
 
-    public function update(Request $request, Party $party)
+    public function update(PartyRequest $request, Party $party)
     {
         $party->update($request->all());
         return redirect()->route('party.index');

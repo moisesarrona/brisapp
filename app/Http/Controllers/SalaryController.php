@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Salary;
 use Illuminate\Http\Request;
+use App\Http\Requests\SalaryRequest;
 
 class SalaryController extends Controller
 {
@@ -19,7 +20,7 @@ class SalaryController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(SalaryRequest $request)
     {
         $decimal = str_replace (",", ".", $request->salary);
         $request->salary = number_format($decimal,2,".","");
@@ -38,7 +39,7 @@ class SalaryController extends Controller
         //
     }
 
-    public function update(Request $request, Salary $salary)
+    public function update(SalaryRequest $request, Salary $salary)
     {
         $salary->update($request->all());
         return redirect()->route('salary.index');

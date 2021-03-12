@@ -1,7 +1,10 @@
 @extends('layouts.templeate')
 
 @section('content')
-    <!-- MAIN CONTENT-->
+    <!-- Error -->
+    @include('layouts.error')
+
+    <!-- Contenido Principal -->
     <section class="statistic">
         <div class="section__content--p30">
             <div class="container-fluid">
@@ -80,20 +83,28 @@
                                                                                     <label for="customer_id" class=" form-control-label">Cliente</label>
                                                                                     <div>
                                                                                         <select name="customer_id" id="customer_id" class="form-control">
+                                                                                            <option value="true" disabled="disable">Selecciona la CLiente</option>
                                                                                             @foreach ($customers as $customer)
-                                                                                            <option value="{{ $customer->id }}">{{ $customer->name }}</option>
+                                                                                            <option value="{{ $customer->id }}" {{ $customer->id == $party->customer_id ? 'selected' : '' }}>{{ $customer->name }}</option>
                                                                                             @endforeach
                                                                                         </select>
+                                                                                        @error('customer_id')
+                                                                                            <code>{{ $message }}</code>
+                                                                                        @enderror
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="form-group col-6">
                                                                                     <label for="package_id" class=" form-control-label">Paquete</label>
                                                                                     <div>
                                                                                         <select name="package_id" id="package_id" class="form-control">
+                                                                                            <option value="true" disabled="disable">Selecciona al Paquete</option>
                                                                                             @foreach ($packages as $package)
-                                                                                            <option value="{{ $package->id }}">{{ $package->name }}</option>
+                                                                                            <option value="{{ $package->id }}" {{ $package->id == $party->package_id ? 'selected' : '' }}>{{ $package->name }}</option>
                                                                                             @endforeach
                                                                                         </select>
+                                                                                        @error('package_id')
+                                                                                            <code>{{ $message }}</code>
+                                                                                        @enderror
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -102,11 +113,17 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="date" class=" form-control-label">Fecha</label>
                                                                                     <input type="date" id="date" name="date" class="form-control" value="{{ $party->date }}">
+                                                                                    @error('date')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
 
                                                                                 <div class="form-group col-6">
                                                                                     <label for="kid" class=" form-control-label">Numero de Niños</label>
                                                                                     <input type="number" id="kid" name="kid" class="form-control" value="{{ $party->kid }}">
+                                                                                    @error('kid')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -171,20 +188,28 @@
                                     <label for="customer_id" class=" form-control-label">Cliente</label>
                                     <div>
                                         <select name="customer_id" id="customer_id" class="form-control">
+                                            <option selected="true" disabled="disabled">Selecione el Cliente</option>
                                             @foreach ($customers as $customer)
                                             <option value="{{ $customer->id }}">{{ $customer->name }}</option>
                                             @endforeach
                                         </select>
+                                        @error('customer_id')
+                                            <code>{{ $message }}</code>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="package_id" class=" form-control-label">Paquete</label>
                                     <div>
                                         <select name="package_id" id="package_id" class="form-control">
+                                            <option selected="true" disabled="disabled">Selecione el Paquete</option>
                                             @foreach ($packages as $package)
                                             <option value="{{ $package->id }}">{{ $package->name }}</option>
                                             @endforeach
                                         </select>
+                                        @error('package_id')
+                                            <code>{{ $message }}</code>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -193,10 +218,16 @@
                                 <div class="form-group col-6">
                                     <label for="date" class=" form-control-label">Fecha</label>
                                     <input type="date" id="date" name="date" class="form-control">
+                                    @error('date')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-6">
                                     <label for="kid" class=" form-control-label">Numero de Niños</label>
                                     <input type="number" id="kid" name="kid" class="form-control">
+                                    @error('kid')
+                                        <code>{{ $message }}</code>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Http\Requests\CustomerRequest;
 
 class CustomerController extends Controller
 {
@@ -19,7 +20,7 @@ class CustomerController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(CustomerRequest $request)
     {
         $status = 1;
         $request->request->add(['status' => $status]);
@@ -37,7 +38,7 @@ class CustomerController extends Controller
         //
     }
 
-    public function update(Request $request, Customer $customer)
+    public function update(CustomerRequest $request, Customer $customer)
     {
         $customer->update($request->all());
         return redirect()->route('customer.index');

@@ -1,7 +1,10 @@
 @extends('layouts.templeate')
 
 @section('content')
-    <!-- MAIN CONTENT-->
+    <!-- Error -->
+    @include('layouts.error')
+
+    <!-- Contenido Principal -->
     <section class="statistic">
         <div class="section__content--p30">
             <div class="container-fluid">
@@ -79,11 +82,17 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="name" class=" form-control-label">Nombre</label>
                                                                                     <input type="text" id="name" name="name" class="form-control" value="{{ $employee->name }}">
+                                                                                    @error('name')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                     
                                                                                 <div class="form-group col-6">
                                                                                     <label for="lastname" class=" form-control-label">Apellido</label>
                                                                                     <input type="text" id="lastname" name="lastname" class="form-control" value="{{ $employee->lastname }}">
+                                                                                    @error('lastname')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                     
@@ -91,16 +100,23 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="birthdate" class=" form-control-label">Fecha de Nacimiento</label>
                                                                                     <input type="date" id="birthdate" name="birthdate" class="form-control" value="{{ $employee->birthdate }}">
+                                                                                    @error('birthdate')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
 
                                                                                 <div class="form-group col-6">
                                                                                     <label for="sex" class=" form-control-label">Sexo</label>
                                                                                     <div>
                                                                                         <select name="sex" id="sex" class="form-control">
+                                                                                            <option value="true">Seleciona el Sexo</option>
                                                                                             <option value="Masculino">Masculino</option>
                                                                                             <option value="Femenino">Femenino</option>
                                                                                         </select>
                                                                                     </div>
+                                                                                    @error('sex')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                                             
@@ -108,11 +124,17 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="phone" class=" form-control-label">Telefono</label>
                                                                                     <input type="tel" id="phone" name="phone" class="form-control" value="{{ $employee->phone }}">
+                                                                                    @error('phone')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
 
                                                                                 <div class="form-group col-6">
                                                                                     <label for="email" class=" form-control-label">Correo</label>
                                                                                     <input type="email" id="email" name="email" class="form-control" value="{{ $employee->email }}">
+                                                                                    @error('email')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                     
@@ -121,11 +143,15 @@
                                                                                     <label for="salary_id" class=" form-control-label">Salario</label>
                                                                                     <div>
                                                                                         <select name="salary_id" id="salary_id" class="form-control">
+                                                                                            <option value="true">Seleciona el Salario</option>
                                                                                             @foreach ($salaries as $salary)
-                                                                                            <option value="{{ $salary->id }}">{{ $salary->salary }}</option>
+                                                                                            <option value="{{ $salary->id }}" {{ $salary->id == $employee->salary_id ? 'selected' : '' }}>{{ $salary->salary }}</option>
                                                                                             @endforeach
                                                                                         </select>
                                                                                     </div>
+                                                                                    @error('salary_id')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                     
@@ -133,11 +159,17 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="address" class=" form-control-label">Domicilio</label>
                                                                                     <input type="text" id="address" name="address" class="form-control" value="{{ $employee->address }}">
+                                                                                    @error('address')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                     
                                                                                 <div class="form-group col-6">
                                                                                     <label for="nss" class=" form-control-label">NSS</label>
                                                                                     <input type="number" id="nss" name="nss" class="form-control" value="{{ $employee->nss }}">
+                                                                                    @error('nss')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                     
@@ -145,17 +177,23 @@
                                                                                 <div class="form-group col-6">
                                                                                     <label for="curp" class=" form-control-label">Curp</label>
                                                                                     <input type="text" id="curp" name="curp" class="form-control" value="{{ $employee->curp }}">
+                                                                                    @error('curp')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                     
                                                                                 <div class="form-group col-6">
                                                                                     <label for="marital_s" class=" form-control-label">Estado Civil</label>
                                                                                     <div>
                                                                                         <select name="marital_s" id="marital_s" class="form-control">
-                                                                                            <option value="0">Selecciona</option>
+                                                                                            <option value="true" disable="disable">Selecciona el Estado Civil</option>
                                                                                             <option value="Casado">Casado</option>
                                                                                             <option value="Soltero">Soltero</option>
                                                                                         </select>
                                                                                     </div>
+                                                                                    @error('marital_s')
+                                                                                        <code>{{ $message }}</code>
+                                                                                    @enderror
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -219,11 +257,17 @@
                                 <div class="form-group col-6">
                                     <label for="name" class=" form-control-label">Nombre</label>
                                     <input type="text" id="name" name="name" class="form-control">
+                                    @error('name')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
     
                                 <div class="form-group col-6">
                                     <label for="lastname" class=" form-control-label">Apellido</label>
                                     <input type="text" id="lastname" name="lastname" class="form-control">
+                                    @error('lastname')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
                             </div>
     
@@ -231,16 +275,23 @@
                                 <div class="form-group col-6">
                                     <label for="birthdate" class=" form-control-label">Fecha de Nacimiento</label>
                                     <input type="date" id="birthdate" name="birthdate" class="form-control">
+                                    @error('birthdate')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
 
                                 <div class="form-group col-6">
                                     <label for="sex" class=" form-control-label">Sexo</label>
                                     <div>
                                         <select name="sex" id="sex" class="form-control">
+                                            <option selected="true" disabled="disabled">Selecione el Sexo</option>
                                             <option value="Masculino">Masculino</option>
                                             <option value="Femenino">Femenino</option>
                                         </select>
                                     </div>
+                                    @error('sex')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
                             </div>
                             
@@ -248,11 +299,17 @@
                                 <div class="form-group col-6">
                                     <label for="phone" class=" form-control-label">Telefono</label>
                                     <input type="tel" id="phone" name="phone" class="form-control">
+                                    @error('phone')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
 
                                 <div class="form-group col-6">
                                     <label for="email" class=" form-control-label">Correo</label>
                                     <input type="email" id="email" name="email" class="form-control">
+                                    @error('email')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
                             </div>
     
@@ -261,11 +318,15 @@
                                     <label for="salary_id" class=" form-control-label">Salario</label>
                                     <div>
                                         <select name="salary_id" id="salary_id" class="form-control">
+                                            <option selected="true" disabled="disabled">Selecione el Salario</option>
                                             @foreach ($salaries as $salary)
                                             <option value="{{ $salary->id }}">{{ $salary->salary }}</option>
                                             @endforeach
                                         </select>
                                     </div>
+                                    @error('salary_id')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
                             </div>
     
@@ -273,11 +334,17 @@
                                 <div class="form-group col-6">
                                     <label for="address" class=" form-control-label">Domicilio</label>
                                     <input type="text" id="address" name="address" class="form-control">
+                                    @error('address')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
     
                                 <div class="form-group col-6">
                                     <label for="nss" class=" form-control-label">NSS</label>
                                     <input type="number" id="nss" name="nss" class="form-control">
+                                    @error('nss')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
                             </div>
     
@@ -285,17 +352,23 @@
                                 <div class="form-group col-6">
                                     <label for="curp" class=" form-control-label">Curp</label>
                                     <input type="text" id="curp" name="curp" class="form-control">
+                                    @error('curp')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
     
                                 <div class="form-group col-6">
                                     <label for="marital_s" class=" form-control-label">Estado Civil</label>
                                     <div>
                                         <select name="marital_s" id="marital_s" class="form-control">
-                                            <option value="0">Selecciona</option>
+                                            <option selected="true" disabled="disabled">Selecione el Estado Civil</option>
                                             <option value="Casado">Casado</option>
                                             <option value="Soltero">Soltero</option>
                                         </select>
                                     </div>
+                                    @error('marital_s')
+                                        <code>{{ $message }}</code>
+                                     @enderror
                                 </div>
                             </div>
                         </div>
