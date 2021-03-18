@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Error -->
-    @include('layouts.error')
+    @include('components.messages')
 
     <!-- Contenido Principal -->
     <section class="statistic">

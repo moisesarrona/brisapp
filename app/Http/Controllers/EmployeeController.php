@@ -26,7 +26,7 @@ class EmployeeController extends Controller
         $status = 1;
         $request->request->add(['status' => $status]);
         Employee::create($request->all());
-        return redirect()->route('employee.index');
+        return redirect()->route('employee.index')->with('status', 'Se ha creado un nuevo empeado: ' . $request->name);
 
     }
 
@@ -43,12 +43,12 @@ class EmployeeController extends Controller
     public function update(EmployeeRequest $request, Employee $employee)
     {
         $employee->update($request->all());
-        return redirect()->route('employee.index');
+        return redirect()->route('employee.index')->with('status', 'Se ha editado el empelado');
     }
 
     public function destroy(Employee $employee)
     {
         $employee->delete();
-        return redirect()->route('employee.index');
+        return redirect()->route('employee.index')->with('status', 'Se ha eliminado el empelado');
     }
 }

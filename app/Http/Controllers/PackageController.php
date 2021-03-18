@@ -23,7 +23,7 @@ class PackageController extends Controller
     public function store(PackageRequest $request)
     {
         Package::create($request->all());
-        return redirect()->route('package.index');
+        return redirect()->route('package.index')->with('status', 'Se ha creado un paquete: ' . $request->name);
     }
 
     public function show(Package $package)
@@ -39,12 +39,12 @@ class PackageController extends Controller
     public function update(PackageRequest $request, Package $package)
     {
         $package->update($request->all());
-        return redirect()->route('package.index');
+        return redirect()->route('package.index')->with('status', 'Se ha editado el paquete');
     }
 
     public function destroy(Package $package)
     {
         $package->delete();
-        return redirect()->route('package.index');
+        return redirect()->route('package.index')->with('status', 'Se ha eliminado el paquete');
     }
 }

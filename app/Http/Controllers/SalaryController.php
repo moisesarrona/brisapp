@@ -26,7 +26,7 @@ class SalaryController extends Controller
         $request->salary = number_format($decimal,2,".","");
 
         Salary::create($request->all());
-        return redirect()->route('salary.index');
+        return redirect()->route('salary.index')->with('status', 'Se ha creado un nuevo salario: ' . $request->name);
     }
 
     public function show(Salary $salary)
@@ -42,12 +42,12 @@ class SalaryController extends Controller
     public function update(SalaryRequest $request, Salary $salary)
     {
         $salary->update($request->all());
-        return redirect()->route('salary.index');
+        return redirect()->route('salary.index')->with('status', 'Se ha editado correctamente el salario');
     }
 
     public function destroy(Salary $salary)
     {
         $salary->delete();
-        return redirect()->route('salary.index');
+        return redirect()->route('salary.index')->with('status', 'Se ha eliminado el salario');
     }
 }

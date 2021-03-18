@@ -24,7 +24,7 @@ class ProviderController extends Controller
         $status = 1;
         $request->request->add(['status' => $status]);
         Provider::create($request->all());
-        return redirect()->route('provider.index');
+        return redirect()->route('provider.index')->with('status', 'Se ha creado un proveedor: ' . $request->business_n);
     }
 
     public function show(Provider $provider)
@@ -53,7 +53,7 @@ class ProviderController extends Controller
     public function update(ProviderRequest $request, Provider $provider)
     {
         $provider->update($request->all());
-        return redirect()->route('provider.index');
+        return redirect()->route('provider.index')->with('status', 'Se ha editado el proveedor');
     }
 
     /**
@@ -65,6 +65,6 @@ class ProviderController extends Controller
     public function destroy(Provider $provider)
     {
         $provider->delete();
-        return redirect()->route('provider.index');
+        return redirect()->route('provider.index')->with('status', 'Se ha eliminado el proveedor');
     }
 }

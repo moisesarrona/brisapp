@@ -29,7 +29,7 @@ class PartyController extends Controller
         $status = 1;
         $request->request->add(['status' => $status]);
         Party::create($request->all());
-        return redirect()->route('party.index');
+        return redirect()->route('party.index')->with('status', 'Se ha creado una nueva fiesta');
     }
 
     public function show(Party $party)
@@ -46,12 +46,12 @@ class PartyController extends Controller
     public function update(PartyRequest $request, Party $party)
     {
         $party->update($request->all());
-        return redirect()->route('party.index');
+        return redirect()->route('party.index')->with('status', 'Se ha editado la fiesta');
     }
 
     public function destroy(Party $party)
     {
         $party->delete();
-        return redirect()->route('party.index');
+        return redirect()->route('party.index')->with('status', 'Se ha eliminado la fiesta');
     }
 }

@@ -27,7 +27,7 @@ class ProductController extends Controller
         $status = 1;
         $request->request->add(['status' => $status]);
         Product::create($request->all());
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('status', 'Se ha creado un nuevo producto: ' . $request->name);
     }
 
     public function show(Product $product)
@@ -43,12 +43,12 @@ class ProductController extends Controller
     public function update(ProductRequest $request, Product $product)
     {
         $product->update($request->all());
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('status', 'Se ha editado el producto');
     }
 
     public function destroy(Product $product)
     {
         $product->delete();
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('status', 'Se ha eliminado el producto');
     }
 }

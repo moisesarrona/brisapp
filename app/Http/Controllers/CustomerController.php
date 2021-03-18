@@ -25,7 +25,7 @@ class CustomerController extends Controller
         $status = 1;
         $request->request->add(['status' => $status]);
         Customer::create($request->all());
-        return redirect()->route('customer.index');
+        return redirect()->route('customer.index')->with('status', 'Se ha creado el cliente: ' . $request->name);
     }
 
     public function show(Customer $customer)
@@ -41,12 +41,12 @@ class CustomerController extends Controller
     public function update(CustomerRequest $request, Customer $customer)
     {
         $customer->update($request->all());
-        return redirect()->route('customer.index');
+        return redirect()->route('customer.index')->with('status', 'Se ha editado el cliente');
     }
 
     public function destroy(Customer $customer)
     {
         $customer->delete();
-        return redirect()->route('customer.index');
+        return redirect()->route('customer.index')->with('status', 'Se ha eliminado el cliente');
     }
 }
