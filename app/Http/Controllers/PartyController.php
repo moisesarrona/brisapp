@@ -26,7 +26,7 @@ class PartyController extends Controller
 
     public function store(PartyRequest $request)
     {
-        $status = 1;
+        $status = false;
         $request->request->add(['status' => $status]);
         Party::create($request->all());
         return redirect()->route('party.index')->with('status', 'Se ha creado una nueva fiesta');

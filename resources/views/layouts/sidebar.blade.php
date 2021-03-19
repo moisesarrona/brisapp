@@ -15,10 +15,15 @@
         </div>
         <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
+                <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                    <a href="{{ route('dashboard') }}">
+                        <i class="fas fa-tachometer-alt"></i>Dahsboard</a>
+                        <!--<span class="inbox-num">3</span>-->
+                </li>
+
                 <li class="{{ request()->routeIs('employee.*') ? 'active' : '' }}">
                     <a href="{{ route('employee.index') }}">
                         <i class="fas fa-suitcase"></i>Empleados</a>
-                        <!--<span class="inbox-num">3</span>-->
                 </li>
 
                 <li class="{{ request()->routeIs('product.*') ? 'active' : '' }}">

@@ -6,8 +6,8 @@ use Illuminate\Support\Facades\Route;
 //Groaup admin
 Route::prefix('/')->group(function () {
     //Index
-    Route::get('/', [DashboardController::class, 'index']);
-    Route::get('/dashboard', [DashboardController::class, 'index']);
+    //Route::get('/', [DashboardController::class, 'index']);
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     //Resource controller
     Route::resource('salary', SalaryController::class);

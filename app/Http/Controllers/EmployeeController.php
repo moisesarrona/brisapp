@@ -23,7 +23,7 @@ class EmployeeController extends Controller
 
     public function store(EmployeeRequest $request)
     {
-        $status = 1;
+        $status = true;
         $request->request->add(['status' => $status]);
         Employee::create($request->all());
         return redirect()->route('employee.index')->with('status', 'Se ha creado un nuevo empeado: ' . $request->name);

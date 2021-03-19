@@ -22,7 +22,7 @@ class CustomerController extends Controller
 
     public function store(CustomerRequest $request)
     {
-        $status = 1;
+        $status = true;
         $request->request->add(['status' => $status]);
         Customer::create($request->all());
         return redirect()->route('customer.index')->with('status', 'Se ha creado el cliente: ' . $request->name);

@@ -24,7 +24,7 @@ class ProductController extends Controller
 
     public function store(ProductRequest $request)
     {
-        $status = 1;
+        $status = true;
         $request->request->add(['status' => $status]);
         Product::create($request->all());
         return redirect()->route('product.index')->with('status', 'Se ha creado un nuevo producto: ' . $request->name);

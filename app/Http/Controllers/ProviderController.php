@@ -21,7 +21,7 @@ class ProviderController extends Controller
     }
     public function store(ProviderRequest $request)
     {
-        $status = 1;
+        $status = true;
         $request->request->add(['status' => $status]);
         Provider::create($request->all());
         return redirect()->route('provider.index')->with('status', 'Se ha creado un proveedor: ' . $request->business_n);

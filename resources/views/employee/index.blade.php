@@ -48,10 +48,10 @@
                                             <td>{{ $employee->birthdate }}</td>
                                             <td>{{ $employee->sex }}</td>
                                             <td>
-                                                @if ($employee->status == 1)
-                                                    <span class="status--process">{{ $employee->status }}</span>
+                                                @if ($employee->status == true)
+                                                    <span class="status--process">Actrivo</span>
                                                 @else
-                                                    <span class="status--denied">{{ $employee->status }}</span>
+                                                    <span class="status--denied">Inactivo</span>
                                                 @endif
                                             </td>
                                             <td>

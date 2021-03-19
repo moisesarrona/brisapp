@@ -50,10 +50,10 @@
                                             </td>
                                             <td>{{ $provider->phone }}</td>
                                             <td>
-                                                @if ($provider->status == 1)
-                                                    <span class="status--process">{{ $provider->status }}</span>
+                                                @if ($provider->status == true)
+                                                    <span class="status--process">Activo</span>
                                                 @else
-                                                    <span class="status--denied">{{ $provider->status }}</span>
+                                                    <span class="status--denied">Inactivo</span>
                                                 @endif
                                             </td>
                                             <td>

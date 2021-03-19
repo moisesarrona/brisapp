@@ -48,10 +48,10 @@
                                             <td>{{ $party->date }}</td>
                                             <td>{{ $party->kid }}</td>
                                             <td>
-                                                @if ($party->status == 1)
-                                                    <span class="status--process">{{ $party->status }}</span>
+                                                @if ($party->status == false)
+                                                    <span class="status--denied">En Agenda</span>
                                                 @else
-                                                    <span class="status--denied">{{ $party->status }}</span>
+                                                    <span class="status--process">Finalizada</span>
                                                 @endif
                                             </td>
                                             <td>

@@ -22,14 +22,15 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title mb-3">Empleado</strong>
-                            </div>
                             <div class="card-body">
                                 <div class="mx-auto d-block text-center">
                                     <img class="rounded-circle mx-auto d-block" src=" {{ asset ('assets/images/icon/avatar-big-01.jpg') }} " alt="Card image cap">
                                     <h5 class="text-sm-center mt-2 mb-1">{{ $employee->name }} {{ $employee->lastname }}</h5>
-                                    <span class="badge badge-success text-sm-center">{{ $employee->status }}</span>
+                                    @if ($employee->status == true)
+                                        <span class="badge badge-success text-sm-center">Activo</span>
+                                    @else
+                                        <span class="badge badge-danger text-sm-center">Inactivo</span>
+                                    @endif
                                     <div class="location text-sm-center">
                                 </div>
                                 <hr>

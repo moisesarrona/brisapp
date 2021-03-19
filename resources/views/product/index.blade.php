@@ -39,6 +39,7 @@
                                         <th>Precio</th>
                                         <th>Existencia</th>
                                         <th>Descripcion</th>
+                                        <th>Estatus</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -48,8 +49,21 @@
                                             <td>{{ $product->name }}</td>
                                             <td>{{ $product->code }}</td>
                                             <td>{{ $product->price }}</td>
-                                            <td>{{ $product->amount }}</td>
+                                            <td>
+                                                @if ($product->amount > 10)
+                                                    <span class="status--process">{{ $product->amount }}</span>                                                    
+                                                @else
+                                                    <span class="status--denied">{{ $product->amount }}</span>
+                                                @endif
+                                            </td>
                                             <td>{{ $product->description }}</td>
+                                            <td>
+                                                @if ($product->status == true)
+                                                    <span class="status--process">Activo</span>
+                                                @else
+                                                    <span class="status--denied">Inactivo</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <div class="table-data-feature">
                                                     <!-- Edit -->
