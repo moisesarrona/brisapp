@@ -159,6 +159,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{ $parties->links() }}
                         </div>
                     </div>
                 </div>

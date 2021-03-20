@@ -75,7 +75,7 @@
                                                     <h5 class="task">
                                                         <a href=" {{ route('party.show', $party->id) }}">Fiesta para: {{ $party->customer->name}} {{ $party->customer->lastname}}</a>
                                                     </h5>
-                                                    <span class="time">{{ $party->date }}</span>
+                                                    <span class="time">{{ $party->created_at }}</span>
                                                 </div>
                                             </div>
                                         @else

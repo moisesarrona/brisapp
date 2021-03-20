@@ -15,7 +15,7 @@ class PartyController extends Controller
     {
         $customers = Customer::all();
         $packages = Package::all();
-        $parties = Party::all();
+        $parties = Party::paginate(5);
         return view('party.index', compact(['customers', 'packages', 'parties']));
     }
 

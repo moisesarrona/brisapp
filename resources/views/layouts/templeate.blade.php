@@ -33,6 +33,13 @@
     <!-- Main CSS-->
     <link href=" {{ asset ('assets/css/theme.css') }} " rel="stylesheet" media="all">
 
+    <!-- Customs -->
+    <style>
+        nav.flex.items-center.justify-between div:nth-child(2) {
+            display: none !important
+        }
+    </style>
+
 </head>
 
 <body class="animsitio">

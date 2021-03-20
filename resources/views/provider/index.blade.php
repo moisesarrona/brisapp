@@ -147,6 +147,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{ $providers->links() }}
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,7 @@ class SalaryController extends Controller
 
     public function index()
     {
-        $salaries = Salary::all();
+        $salaries = Salary::paginate(5);
         return view('salary.index', compact('salaries'));
     }
 

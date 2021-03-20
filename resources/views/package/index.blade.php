@@ -16,7 +16,7 @@
                         <!-- Buttons -->
                         <div class="table-data__tool">
                             <div class="table-data__tool-left">
-                                <a href="{{ route ('package.index') }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                                <a href="{{ route ('party.index') }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
                                     Regresar
                                 </a>
                             </div>
@@ -186,6 +186,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{ $packages->links() }}
                         </div>
                     </div>
                 </div>
