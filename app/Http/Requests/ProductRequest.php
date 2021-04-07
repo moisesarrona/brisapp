@@ -26,7 +26,7 @@ class ProductRequest extends FormRequest
         return [
             'name' => ['required', 'max:50'],
             'code' => ['required', 'max:150'],
-            'price' => ['required'],
+            'price' => ['required', 'regex:/^\d*(\.\d{1,2})?$/'],
             'amount' => ['required', 'integer'],
             'description' => ['required', 'max:150'],
             'provider_id' => ['required', 'integer'],

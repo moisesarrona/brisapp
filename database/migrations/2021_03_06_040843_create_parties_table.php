@@ -17,9 +17,10 @@ class CreatePartiesTable extends Migration
             $table->id();
             $table->foreignId('customer_id')->nullable()->constrained('customers')->onDelete('set null');
             $table->foreignId('package_id')->nullable()->constrained('packages')->onDelete('set null');
-            $table->date('date');
+            $table->dateTime('date');
             $table->integer('kid');
             $table->boolean('status');
+            $table->decimal('total', 10,2);
             $table->timestamps();
         });
     }

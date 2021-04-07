@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -32,17 +32,17 @@
 
     <!-- Main CSS-->
     <link href=" {{ asset ('assets/css/theme.css') }} " rel="stylesheet" media="all">
-
-    <!-- Customs -->
     <style>
-        nav.flex.items-center.justify-between div:nth-child(2) {
-            display: none !important
+        nav.flex div:nth-child(2){
+            display: none
         }
     </style>
 
+    @yield('style')
+
 </head>
 
-<body class="animsitio">
+<body class="animsiton">
     <div class="page-wrapper">
         <!-- MENU SIDEBAR-->
         @include('layouts.sidebar')
@@ -62,33 +62,32 @@
 
     </div>
 
-    <!-- Jquery JS-->
+    <!-- Jquery JS -->
     <script src=" {{ asset ('assets/vendor/jquery-3.2.1.min.js') }} "></script>
-    <!-- Bootstrap JS-->
+    <!-- Bootstrap JS -->
     <script src=" {{ asset ('assets/vendor/bootstrap-4.1/popper.min.js') }} "></script>
     <script src=" {{ asset ('assets/vendor/bootstrap-4.1/bootstrap.min.js') }} "></script>
-    <!-- Vendor JS       -->
-    <script src=" {{ asset ('assets/vendor/slick/slick.min.js') }} ">
-    </script>
+    <!-- Vendor JS -->
+    <script src=" {{ asset ('assets/vendor/slick/slick.min.js') }} "></script>
     <script src=" {{ asset ('assets/vendor/wow/wow.min.js') }} "></script>
     <script src=" {{ asset ('assets/vendor/animsition/animsition.min.js') }} "></script>
-    <script src=" {{ asset ('assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }} ">
-    </script>
+    <script src=" {{ asset ('assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }} "></script>
     <script src=" {{ asset ('assets/vendor/counter-up/jquery.waypoints.min.js') }} "></script>
-    <script src=" {{ asset ('assets/vendor/counter-up/jquery.counterup.min.js') }} ">
-    </script>
+    <script src=" {{ asset ('assets/vendor/counter-up/jquery.counterup.min.js') }} "></script>
+    <!-- Graficas -->
     <script src=" {{ asset ('assets/vendor/circle-progress/circle-progress.min.js') }} "></script>
     <script src=" {{ asset ('assets/vendor/perfect-scrollbar/perfect-scrollbar.js') }} "></script>
     <script src=" {{ asset ('assets/vendor/chartjs/Chart.bundle.min.js') }} "></script>
-    <script src=" {{ asset ('assets/vendor/select2/select2.min.js') }} ">
-    </script>
+    <script src=" {{ asset ('assets/vendor/select2/select2.min.js') }} "></script>
     <script src=" {{ asset ('assets/vendor/vector-map/jquery.vmap.js') }} "></script>
     <script src=" {{ asset ('assets/vendor/vector-map/jquery.vmap.min.js') }} "></script>
     <script src=" {{ asset ('assets/vendor/vector-map/jquery.vmap.sampledata.js') }} "></script>
     <script src=" {{ asset ('assets/vendor/vector-map/jquery.vmap.world.js') }} "></script>
-
     <!-- Main JS-->
     <script src=" {{ asset ('assets/js/main.js') }} "></script>
+
+    <!-- Customs -->
+    @yield('script')
 
 </body>
 </html>

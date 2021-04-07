@@ -1,4 +1,4 @@
-@extends('layouts.templeate')
+@extends('layouts.template')
 
 @section('content')
     <!-- Error -->
@@ -109,7 +109,7 @@
                                                                             <div class="row">
                                                                                 <div class="form-group col-6">
                                                                                     <label for="price" class=" form-control-label">Precio por unidad</label>
-                                                                                    <input type="number" id="price" name="price" class="form-control" value="{{ $product->price }}">
+                                                                                    <input type="number" step="0.01" id="price" name="price" class="form-control" value="{{ $product->price }}">
                                                                                     @error('price')
                                                                                         <code>{{ $message }}</code>
                                                                                     @enderror
@@ -231,7 +231,7 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="price" class=" form-control-label">Precio por unidad</label>
-                                    <input type="number" id="price" name="price" class="form-control">
+                                    <input type="number" step="0.01" id="price" name="price" class="form-control">
                                     @error('price')
                                         <code>{{ $message }}</code>
                                      @enderror

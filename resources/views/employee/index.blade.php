@@ -1,4 +1,4 @@
-@extends('layouts.templeate')
+@extends('layouts.template')
 
 @section('content')
     <!-- Error -->
@@ -321,7 +321,7 @@
                                         <select name="salary_id" id="salary_id" class="form-control">
                                             <option selected="true" disabled="disabled">Selecione el Salario</option>
                                             @foreach ($salaries as $salary)
-                                            <option value="{{ $salary->id }}">{{ $salary->salary }}</option>
+                                            <option value="{{ $salary->id }}">{{ $salary->salary }} {{ $salary->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

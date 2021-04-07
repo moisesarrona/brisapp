@@ -25,7 +25,7 @@ class SalaryRequest extends FormRequest
     {
         return [
             'name' => ['required', 'max:50'],
-            'salary' => ['required', 'integer'],
+            'salary' => ['required', 'regex:/^\d*(\.\d{1,2})?$/'],
         ];
     }
 

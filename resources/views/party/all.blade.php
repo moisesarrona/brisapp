@@ -1,20 +1,5 @@
 @extends('layouts.template')
 
-@section('style')
-    <!-- FullCalendar -->
-    <link href='{{ asset('assets/vendor/fullcalendar-3.10.0/fullcalendar.css') }}' rel='stylesheet' media="all" />
-
-    <style>
-        nav.flex.items-center.justify-between div:nth-child(2) {
-            display: none !important
-        }
-
-        .fc-day-grid-event {
-            color: white !important;
-        }
-    </style>
-@endsection
-
 @section('content')
     <!-- Error -->
     @include('components.messages')
@@ -31,20 +16,11 @@
                             <div class="table-data__tool-left">
                                 <div class="table-data__tool-left">
                                     <div class="table-data__tool-left">
-                                        <a href="{{ route('package.index') }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
-                                            Paquete
+                                        <a href="{{ route('party.index') }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                                            Volver
                                         </a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="table-data__tool-right">
-                                <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#add">
-                                    <i class="zmdi zmdi-plus"></i>Agregar
-                                </button>
-
-                                <a href="{{ route('parties.all') }}" class="au-btn au-btn-icon au-btn--blue au-btn--small">
-                                    Ver todos
-                                </a>
                             </div>
                         </div>
 
@@ -196,137 +172,9 @@
                             {{ $parties->links() }}
                         </div>
                     </div>
-
-                    <div class="col-md-10 offset-md-1 mt-5">
-                        <h3 class="title-5 m-b-35">Fechas disponibles</h3>
-
-                        <div class="au-card">
-                            <div id="calendar"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Modal Add -->
-    <div class="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <form action="{{ route('party.store') }}" method="post">
-                    @csrf
-                    @method('POST')
-                    <!-- Head -->
-                    <div class="card-header">
-                        <strong>Agregar Fiesta</strong>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <!-- Inputs -->
-                    <div class="modal-body">
-                        <div class="card-body card-block">
-                            <div class="row">
-                                <div class="form-group col-6">
-                                    <label for="customer_id" class=" form-control-label">Cliente</label>
-                                    <div>
-                                        <select name="customer_id" id="customer_id" class="form-control">
-                                            <option selected="true" disabled="disabled">Selecione el Cliente</option>
-                                            @foreach ($customers as $customer)
-                                            <option value="{{ $customer->id }}" >{{ $customer->name }} {{ $customer->lastname }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('customer_id')
-                                            <code>{{ $message }}</code>
-                                        @enderror
-                                    </div>
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="package_id" class=" form-control-label">Paquete</label>
-                                    <div>
-                                        <select name="package_id" id="package_id" class="form-control">
-                                            <option selected="true" disabled="disabled">Selecione el Paquete</option>
-                                            @foreach ($packages as $package)
-                                                <option value="{{ $package->id }}">{{ $package->name }} - paquete: {{ $package->price_lm }} {{ $package->price_jv }} {{ $package->price_sd}} - precio extra: {{ $package->price_e }}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('package_id')
-                                            <code>{{ $message }}</code>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group col-6">
-                                    <label for="date" class=" form-control-label">Fecha</label>
-                                    <input type="datetime-local" id="date" name="date" class="form-control">
-                                    @error('date')
-                                        <code>{{ $message }}</code>
-                                    @enderror
-                                </div>
-                                <div class="form-group col-6">
-                                    <label for="kid" class=" form-control-label">Numero de Niños</label>
-                                    <input type="number" id="kid" name="kid" class="form-control">
-                                    @error('kid')
-                                        <code>{{ $message }}</code>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Buttons -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <button type="submit" class="btn btn-success">Guardar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-@endsection
-
-@section('script')
-    <!-- Calendar -->
-    <script src=" {{ asset('assets/vendor/fullcalendar-3.10.0/lib/moment.min.js') }}"></script>
-    <script src=" {{ asset('assets/vendor/fullcalendar-3.10.0/fullcalendar.js') }} "></script>
-    <script src=" {{ asset('assets/vendor/fullcalendar-3.10.0/locale/es.js') }} "></script>
-    <script type="text/javascript">
-        $(function() {
-            // setup a few events
-            $('#calendar').fullCalendar({
-
-                locale: 'es',
-
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'month,agendaWeek,agendaDay,listWeek'
-                },
-
-                events : [
-                    @foreach($partiess as $party)
-                    {
-                        title : '{{ $party->customer->name }}',
-                        start : '{{ $party->date }}',
-
-                        @if ($party->status == false)
-                            color: 'red',
-                        @else
-                            color: 'green',
-                        @endif
-
-                        
-                        
-                    },
-                    @endforeach
-                ],
-
-                
-            });
-        });
-    </script>
 
 @endsection

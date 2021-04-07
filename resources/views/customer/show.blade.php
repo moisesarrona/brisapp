@@ -1,4 +1,4 @@
-@extends('layouts.templeate')
+@extends('layouts.template')
 
 @section('content')
     <!-- MAIN CONTENT-->

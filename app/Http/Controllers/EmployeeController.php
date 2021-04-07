@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Employee;
 use App\Models\Salary;
 use Illuminate\Http\Request;
-use App\Http\Requests\EmployeeRequest;
+use App\Http\Requests\EmployeeRequest;  
+
+use Carbon\Carbon;
 
 class EmployeeController extends Controller
 {

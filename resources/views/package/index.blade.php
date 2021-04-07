@@ -1,4 +1,4 @@
-@extends('layouts.templeate')
+@extends('layouts.template')
 
 @section('content')
     <!-- Error -->
@@ -121,7 +121,7 @@
                                                                             <div class="row">
                                                                                 <div class="form-group col-6">
                                                                                     <label for="price_lm" class=" form-control-label">Precio Lunes - Miercoles</label>
-                                                                                    <input type="number" id="price_lm" name="price_lm" class="form-control" value="{{ $package->price_lm }}">
+                                                                                    <input type="number" step="0.01"s id="price_lm" name="price_lm" class="form-control" value="{{ $package->price_lm }}">
                                                                                     @error('price_lm')
                                                                                         <code>{{ $message }}</code>
                                                                                     @enderror
@@ -129,7 +129,7 @@
                                                 
                                                                                 <div class="form-group col-6">
                                                                                     <label for="price_jv" class=" form-control-label">Precio Juves - Viernes</label>
-                                                                                    <input type="number" id="price_jv" name="price_jv" class="form-control" value="{{ $package->price_jv }}">
+                                                                                    <input type="number" step="0.01"s id="price_jv" name="price_jv" class="form-control" value="{{ $package->price_jv }}">
                                                                                     @error('price_jv')
                                                                                         <code>{{ $message }}</code>
                                                                                     @enderror
@@ -139,7 +139,7 @@
                                                                             <div class="row">
                                                                                 <div class="form-group col-6">
                                                                                     <label for="price_sd" class=" form-control-label">Precio Sabado - Domingo</label>
-                                                                                    <input type="number" id="price_sd" name="price_sd" class="form-control" value="{{ $package->price_sd }}">
+                                                                                    <input type="number" step="0.01"s id="price_sd" name="price_sd" class="form-control" value="{{ $package->price_sd }}">
                                                                                     @error('price_sd')
                                                                                         <code>{{ $message }}</code>
                                                                                     @enderror
@@ -147,7 +147,7 @@
                                                 
                                                                                 <div class="form-group col-6">
                                                                                     <label for="price_e" class=" form-control-label">Precio extra por niño</label>
-                                                                                    <input type="number" id="price_e" name="price_e" class="form-control" value="{{ $package->price_e }}">
+                                                                                    <input type="number" step="0.01"s id="price_e" name="price_e" class="form-control" value="{{ $package->price_e }}">
                                                                                     @error('price_e')
                                                                                         <code>{{ $message }}</code>
                                                                                     @enderror
@@ -260,7 +260,7 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="price_lm" class=" form-control-label">Precio Lunes - Miercoles</label>
-                                    <input type="number" id="price_lm" name="price_lm" class="form-control">
+                                    <input type="number" step="0.01" id="price_lm" name="price_lm" class="form-control">
                                     @error('price_lm')
                                         <code>{{ $message }}</code>
                                     @enderror
@@ -268,7 +268,7 @@
 
                                 <div class="form-group col-6">
                                     <label for="price_jv" class=" form-control-label">Precio Juves - Viernes</label>
-                                    <input type="number" id="price_jv" name="price_jv" class="form-control">
+                                    <input type="number" step="0.01" id="price_jv" name="price_jv" class="form-control">
                                     @error('price_jv')
                                         <code>{{ $message }}</code>
                                     @enderror
@@ -278,7 +278,7 @@
                             <div class="row">
                                 <div class="form-group col-6">
                                     <label for="price_sd" class=" form-control-label">Precio Sabado - Domingo</label>
-                                    <input type="number" id="price_sd" name="price_sd" class="form-control">
+                                    <input type="number" step="0.01" id="price_sd" name="price_sd" class="form-control">
                                     @error('price_sd')
                                         <code>{{ $message }}</code>
                                     @enderror
@@ -286,7 +286,7 @@
 
                                 <div class="form-group col-6">
                                     <label for="price_e" class=" form-control-label">Precio extra por niño</label>
-                                    <input type="number" id="price_e" name="price_e" class="form-control">
+                                    <input type="number" step="0.01" id="price_e" name="price_e" class="form-control">
                                     @error('price_e')
                                         <code>{{ $message }}</code>
                                     @enderror
