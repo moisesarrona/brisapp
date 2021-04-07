@@ -134,7 +134,7 @@
                                                                             <div class="row">
                                                                                 <div class="form-group col-6">
                                                                                     <label for="date" class=" form-control-label">Fecha</label>
-                                                                                    <input type="date" id="date" name="date" class="form-control" value="{{ $party->date }}">
+                                                                                    <input type="datetime-local" id="date" name="date" class="form-control" value="{{ $party->date }}">
                                                                                     @error('date')
                                                                                         <code>{{ $message }}</code>
                                                                                     @enderror

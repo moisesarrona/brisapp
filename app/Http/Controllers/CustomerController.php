@@ -6,6 +6,8 @@ use App\Models\Customer;
 use Illuminate\Http\Request;
 use App\Http\Requests\CustomerRequest;
 
+use Carbon\Carbon;
+
 class CustomerController extends Controller
 {
 
@@ -30,7 +32,8 @@ class CustomerController extends Controller
 
     public function show(Customer $customer)
     {
-        return view('customer.show', compact('customer'));
+        $now = Carbon::now();
+        return view('customer.show', compact(['customer', 'now']));
     }
 
     public function edit(Customer $customer)

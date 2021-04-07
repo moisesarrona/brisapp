@@ -73,13 +73,19 @@
                             <div class="table-responsive">
                                 <table class="table table-top-campaign">
                                     <tbody>
-                                        @foreach ($parties as $party)
-                                        <a href="{{ route('party.show', $party) }}">
-                                            <tr>
-                                                <td>{{ $party->customer->name }}</td>
-                                                <td>{{ \Carbon\Carbon::parse($party->date)->toFormattedDateString() }}</td>
-                                            </tr>
-                                        </a>
+                                        @foreach ($parties->where('status', '=', false) as $party)
+                                        <tr>
+                                            <td>{{ $party->customer->name }}</td>
+                                            <td>
+                                                <a href="{{ route('party.show', $party) }}">
+                                                    {{ \Carbon\Carbon::parse($party->date)->toFormattedDateString() }}
+                                                </a>
+                                                <br>
+                                                @if (Carbon\Carbon::parse($party->date)->format('d-m-Y h') == Carbon\Carbon::parse($now)->format('d-m-Y h'))
+                                                    <span class="status--denied"><small>Hoy se festeja</small></span>
+                                                @endif
+                                            </td>
+                                        </tr>
                                         @endforeach
                                         
                                     </tbody>

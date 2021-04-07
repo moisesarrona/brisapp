@@ -44,7 +44,8 @@ class PartyController extends Controller
     public function show(Party $party)
     {
         $parties = Party::orderBy('date', 'asc')->take(5)->get();
-        return view('party.show', compact(['party', 'parties']));
+        $now = Carbon::now();
+        return view('party.show', compact(['party', 'parties', 'now']));
     }
 
 
