@@ -14,6 +14,7 @@ Route::prefix('/')->group(function () {
     Route::resource('employee', EmployeeController::class);
     Route::resource('provider', ProviderController::class);
     Route::resource('product', ProductController::class);
+    Route::post('product/status', 'ProductController@status')->name('product.status');
     Route::resource('customer', CustomerController::class);
     Route::resource('package', PackageController::class);
     Route::resource('party', PartyController::class);

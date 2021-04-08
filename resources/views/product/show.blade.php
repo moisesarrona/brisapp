@@ -16,43 +16,70 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Information -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title mb-3">Producto</strong>
-                            </div>
-                            <div class="card-body">
+                    <!-- Information -->
+                    <div class="col-md-7">
+                        <div class="top-campaign">
+                            <h3 class="title-3 m-b-30">Producto No. {{ $product->id }}</h3>
+                            <div class="table-responsive">
                                 <div class="card-text text-sm-left">
                                     <h5>{{ $product->name }}</h5>
                                     <span class="small">Producto</span>
+                                    <br>
                                     <br>
 
                                     <h5>{{ $product->code }}</h5>
                                     <span class="small">Codigo</span>
                                     <br>
+                                    <br>
 
                                     <h5>{{ $product->price }}</h5>
                                     <span class="small">Precio</span>
+                                    <br>
                                     <br>
 
                                     <h5>{{ $product->amount }}</h5>
                                     <span class="small">Existencia</span>
                                     <br>
+                                    <br>
 
                                     <h5>{{ $product->description }}</h5>
                                     <span class="small">Description</span>
+                                    <br>
                                     <br>
 
                                     <h5>{{ $product->provider->business_n }}</h5>
                                     <span class="small">Proveedor</span>
                                     <br>
+                                    <br>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Top -->
+                    <div class="col-md-5">
+                        <div class="top-campaign">
+                            <h3 class="title-3 m-b-30">Productos por Agotarse</h3>
+                            <div class="table-responsive">
+                                <table class="table table-top-campaign">
+                                    <tbody>
+                                        @foreach ($products as $product)
+                                        <tr>
+                                            <td>
+                                                <a href="{{ route('product.show', $product) }}">
+                                                    {{ $product->name }}
+                                                </a>
+                                            </td>
+                                            <td class="status--denied">{{ $product->amount }}</td>
+                                        </tr>
+                                        @endforeach
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

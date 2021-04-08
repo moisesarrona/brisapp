@@ -27,7 +27,7 @@ class ProductRequest extends FormRequest
             'name' => ['required', 'max:50'],
             'code' => ['required', 'max:150'],
             'price' => ['required', 'regex:/^\d*(\.\d{1,2})?$/'],
-            'amount' => ['required', 'integer'],
+            'amount' => ['integer'],
             'description' => ['required', 'max:150'],
             'provider_id' => ['required', 'integer'],
         ];
@@ -54,7 +54,6 @@ class ProductRequest extends FormRequest
 
             'price.required' => 'Agrege el :attribute',
 
-            'amount.required' => 'Agrege la :attribute',
             'amount.max' => 'El :attribute es muy largo',
 
             'description.required' => 'Agrege la :attribute',

@@ -40,7 +40,7 @@
                                         <th>Existencia</th>
                                         <th>Descripcion</th>
                                         <th>Estatus</th>
-                                        <th></th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -115,13 +115,14 @@
                                                                                     @enderror
                                                                                 </div>
                                                     
+                                                                                <!--
                                                                                 <div class="form-group col-6">
                                                                                     <label for="amount" class=" form-control-label">Existencia</label>
                                                                                     <input type="number" id="amount" name="amount" class="form-control" value="{{ $product->amount }}">
                                                                                     @error('amount')
                                                                                         <code>{{ $message }}</code>
                                                                                     @enderror
-                                                                                </div>
+                                                                                </div>-->
                                                                             </div>
                                                     
                                                                             <div class="row">
@@ -178,6 +179,16 @@
                                                     <a href="{{ route ('product.show', $product) }}" class="item">
                                                         <i class="zmdi zmdi-more"></i>
                                                     </a>
+
+                                                    <!-- Status -->
+                                                    <form action="{{ route('product.status') }}" method="POST">
+                                                        @csrf
+
+                                                        <input type="hidden" name="id" value="{{ $product->id }}">
+                                                        <button class="item" type="submit">
+                                                            <i class="zmdi zmdi-rotate-right"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>
@@ -237,13 +248,14 @@
                                      @enderror
                                 </div>
     
+                                <!--
                                 <div class="form-group col-6">
                                     <label for="amount" class=" form-control-label">Existencia</label>
                                     <input type="number" id="amount" name="amount" class="form-control">
                                     @error('amount')
                                         <code>{{ $message }}</code>
                                      @enderror
-                                </div>
+                                </div>-->
                             </div>
     
                             <div class="row">
