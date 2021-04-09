@@ -7,13 +7,16 @@ use App\Models\Product;
 use App\Models\Party;
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+
 class DashboardController extends Controller
 {
     public function index () {
         $customers = Customer::all();
         $products = Product::all();
         $parties = Party::all();
-        return view('dashboard.index', compact(['customers', 'products', 'parties']));
+        $now = new Carbon;
+        return view('dashboard.index', compact(['customers', 'products', 'parties', 'now']));
     }
 }
     

@@ -65,17 +65,17 @@
                             </div>
                             <div class="au-task js-list-load">
                                 <div class="au-task__title">
-                                    <p>Eventos proximos mucho OJO</p>
+                                    <p>Eventos de este mes mucho OJO</p>
                                 </div>
                                 <div class="au-task-list js-scrollbar3">
-                                    @foreach ($parties as $party)
+                                    @foreach ($parties->sortBy('status') as $party)
                                         @if ($party->status == false)
                                             <div class="au-task__item au-task__item--danger">
                                                 <div class="au-task__item-inner">
                                                     <h5 class="task">
                                                         <a href=" {{ route('party.show', $party->id) }}">Fiesta para: {{ $party->customer->name}} {{ $party->customer->lastname}}</a>
                                                     </h5>
-                                                    <span class="time">{{ $party->created_at }}</span>
+                                                    <span class="time">{{ \Carbon\Carbon::parse($party->date)->toFormattedDateString() }}</span>
                                                 </div>
                                             </div>
                                         @else
@@ -101,7 +101,7 @@
                                 <div class="table-responsive">
                                     <table class="table table-top-countries">
                                         <tbody>
-                                            @foreach ($products->where('amount', '<', '10') as $key=>$product)
+                                            @foreach ($products->where('amount', '<', '11') as $key=>$product)
                                             <tr>
                                                 <td>
                                                     <span>
