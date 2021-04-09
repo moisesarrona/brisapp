@@ -20,10 +20,16 @@
                                     Salarios
                                 </a>
                             </div>
-                            <div class="table-data__tool-right">
+                            <div class="table-data__tool-right d-flex">
                                 <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#add">
                                     <i class="zmdi zmdi-plus"></i>Agregar
                                 </button>
+                                <form action="{{route ('employee.payroll') }}" method="POST">
+                                    @csrf
+                                    <button class="au-btn au-btn-icon au-btn--blue au-btn--small">
+                                        Genrar nomina
+                                    </button>
+                                </form>
                             </div>
                         </div>
 
@@ -49,7 +55,7 @@
                                             <td>{{ $employee->sex }}</td>
                                             <td>
                                                 @if ($employee->status == true)
-                                                    <span class="status--process">Actrivo</span>
+                                                    <span class="status--process">Activo</span>
                                                 @else
                                                     <span class="status--denied">Inactivo</span>
                                                 @endif
@@ -222,6 +228,16 @@
                                                     <a href="{{ route ('employee.show', $employee) }}" class="item">
                                                         <i class="zmdi zmdi-more"></i>
                                                     </a>
+
+                                                    <!-- Status -->
+                                                    <form action="{{ route('employee.status') }}" method="post">
+                                                        @csrf
+
+                                                        <input type="hidden" name="id" value="{{ $employee->id }}">
+                                                        <button class="item" type="submit">
+                                                            <i class="zmdi zmdi-rotate-right"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </td>
                                         </tr>

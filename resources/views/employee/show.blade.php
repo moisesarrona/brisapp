@@ -16,63 +16,114 @@
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Information -->
-                <div class="row">
+                    <!-- Information -->
                     <div class="col-md-6">
-                        <div class="card">
-                            <div class="card-body">
+                        <div class="top-campaign">
+                            <div class="table-responsive">
                                 <div class="mx-auto d-block text-center">
-                                    <img class="rounded-circle mx-auto d-block" src=" {{ asset ('assets/images/icon/avatar-big-01.jpg') }} " alt="Card image cap">
                                     <h5 class="text-sm-center mt-2 mb-1">{{ $employee->name }} {{ $employee->lastname }}</h5>
                                     @if ($employee->status == true)
                                         <span class="badge badge-success text-sm-center">Activo</span>
                                     @else
                                         <span class="badge badge-danger text-sm-center">Inactivo</span>
                                     @endif
-                                    <div class="location text-sm-center">
+                                    <div class="location text-sm-center"></div>
                                 </div>
                                 <hr>
                                 <div class="card-text text-sm-left">
-                                    <h5>{{ $employee->birthdate }}</h5>
-                                    <span class="small">Fecha de nacimiento</span>
-                                    <br>
+                                    <div class="d-flex">
+                                        <div class="w-50 text-left">
+                                            <h5>{{ $employee->birthdate }}</h5>
+                                            <span class="small">Fecha de nacimiento</span>
+                                            <br>
+                                            <br>
+                                        </div>
 
-                                    <h5>{{ $employee->sex }}</h5>
-                                    <span class="small">Sexo</span>
-                                    <br>
+                                        <div class="w-50 text-right">
+                                            <h5>{{ $employee->sex }}</h5>
+                                            <span class="small">Sexo</span>
+                                            <br>
+                                            <br>
+                                        </div>
+                                    </div>
 
-                                    <h5>{{ $employee->phone }}</h5>
-                                    <span class="small">Telefono</span>
-                                    <br>
+                                    <div class="d-flex">
+                                        <div class="w-50 text-left">
+                                            <h5>{{ $employee->nss }}</h5>
+                                            <span class="small">NSS</span>
+                                            <br>
+                                            <br>
+                                        </div>
+                                        <div class="w-50 text-right">
+                                            <h5>{{ $employee->curp }}</h5>
+                                            <span class="small">CURP</span>
+                                            <br>
+                                            <br>
+                                        </div>
+                                    </div>
 
-                                    <h5>{{ $employee->email }}</h5>
-                                    <span class="small">Correo</span>
-                                    <br>
+                                    <div class="d-flex">
+                                        <div class="w-50 text-left">
+                                            <h5>{{ $employee->salary->salary }}</h5>
+                                            <span class="small">Salario</span>
+                                            <br>
+                                            <br>
+                                        </div>
 
-                                    <h5>{{ $employee->salary->salary }}</h5>
-                                    <span class="small">Salario</span>
-                                    <br>
+                                        <div class="w-50 text-right">
+                                            <h5>{{ $employee->marital_s }}</h5>
+                                            <span class="small">Estado Civil</span>
+                                            <br>
+                                            <br>
+                                        </div>
+                                    </div>
 
-                                    <h5>{{ $employee->address }}</h5>
-                                    <span class="small">Domicilio</span>
-                                    <br>
+                                    <div class="d-flex">
+                                        <div class="w-50 text-left">
+                                            <h5>{{ $employee->phone }}</h5>
+                                            <span class="small">Telefono</span>
+                                            <br>
+                                            <br>
+                                        </div>
+                                        <div class="w-50 text-right">
+                                            <h5>{{ $employee->email }}</h5>
+                                            <span class="small">Correo</span>
+                                            <br>
+                                            <br>
+                                        </div>
+                                    </div>
 
-                                    <h5>{{ $employee->nss }}</h5>
-                                    <span class="small">NSS</span>
-                                    <br>
-
-                                    <h5>{{ $employee->curp }}</h5>
-                                    <span class="small">CURP</span>
-                                    <br>
-
-                                    <h5>{{ $employee->marital_s }}</h5>
-                                    <span class="small">Estado Civil</span>
-                                    <br>
+                                    <div class="text-center">
+                                        <h5>{{ $employee->address }}</h5>
+                                        <span class="small">Domicilio</span>
+                                        <br>
+                                        <br>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Top -->
+                    <div class="col-md-6">
+                        <div class="top-campaign">
+                            <h3 class="title-3 m-b-30">Nominas del empleado</h3>
+                            <div class="table-responsive">
+                                <table class="table table-top-campaign">
+                                    <tbody>
+                                        @foreach ($payrolls->sortBy('date') as $payroll)
+                                        <tr>
+                                            <td>{{ \Carbon\Carbon::parse($payroll->date)->toFormattedDateString() }}</td>
+                                            <td>${{ $payroll->total }}</td>
+                                        </tr>
+                                        @endforeach
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
