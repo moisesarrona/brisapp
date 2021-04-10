@@ -27,7 +27,7 @@ Download the project
 Create database db_brisapp (mysql)
 
 ### Step 3
-Open Code Editor
+Open the project in Code Editor (Visual Studio Code)
 
 ### Step 4
 Open the terminal in Visual Studio Code
@@ -55,12 +55,17 @@ Write in terminal
 ````
 php artisan migrate
 ````
+and
+````
+php artisan db:seed
+````
 
 ### Step 9
 Write in terminal
 ````
 php artisan serve
 ````
+
 
 ### Step 10
 Enjoy the project my friend
