@@ -6,7 +6,7 @@
         <div class="section__content section__content--p30">
             <div class="container-fluid">
                 <div class="row">
-                    <a href="{{ route('customer.index') }}" class="col-md-6 col-lg-3">
+                    <a href="{{ route('customer.index') }}" class="col-md-6 col-lg-4">
                         <div class="statistic__item">
                             <h2 class="number">{{ $customers->count() }}</h2>
                             <span class="desc">Clientes</span>
@@ -15,7 +15,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{ route('product.index') }}" class="col-md-6 col-lg-3">
+                    <a href="{{ route('product.index') }}" class="col-md-6 col-lg-4">
                         <div class="statistic__item">
                             <h2 class="number">{{ $products->count() }}</h2>
                             <span class="desc">Productos</span>
@@ -24,21 +24,12 @@
                             </div>
                         </div>
                     </a>
-                    <a href="{{ route('party.index') }}" class="col-md-6 col-lg-3">
+                    <a href="{{ route('party.index') }}" class="col-md-6 col-lg-4">
                         <div class="statistic__item">
                             <h2 class="number">{{ $parties->count() }}</h2>
                             <span class="desc">Fiestas</span>
                             <div class="icon">
                                 <i class="zmdi zmdi-calendar-note"></i>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="" class="col-md-6 col-lg-3">
-                        <div class="statistic__item">
-                            <h2 class="number">$1,060,386</h2>
-                            <span class="desc">total earnings</span>
-                            <div class="icon">
-                                <i class="zmdi zmdi-money"></i>
                             </div>
                         </div>
                     </a>
