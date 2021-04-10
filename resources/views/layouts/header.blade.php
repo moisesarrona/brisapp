@@ -106,7 +106,14 @@
                  <img src=" {{ asset ('assets/images/icon/avatar-big-01.jpg') }}" alt="John Doe" />
             </div>
             <h4 class="name">Administrador</h4>
-            <a href="#">Cerrar Sesión</a>
+            <a class="dropdown-item" href="{{ route('logout') }}"
+                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                Cerrar Sesión
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
         </div>
         <nav class="navbar-sidebar2">
             <ul class="list-unstyled navbar__list">
