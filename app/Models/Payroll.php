@@ -9,8 +9,7 @@ class Payroll extends Model
 {
     use HasFactory;
 
-    public function employee ()
-    {
-        return $this->belongsToMany(Employee::class);
+    public function employee() {
+        return $this->belongsTo(Employee::class);
     }
 }

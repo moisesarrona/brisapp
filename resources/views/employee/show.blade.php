@@ -114,7 +114,11 @@
                                     <tbody>
                                         @foreach ($payrolls->sortBy('date') as $payroll)
                                         <tr>
-                                            <td>{{ \Carbon\Carbon::parse($payroll->date)->toFormattedDateString() }}</td>
+                                            <td>
+                                                <a href=" {{ route('employee.showpay', $payroll) }}">
+                                                    {{ \Carbon\Carbon::parse($payroll->date)->toFormattedDateString() }}
+                                                </a>
+                                            </td>
                                             <td>${{ $payroll->total }}</td>
                                         </tr>
                                         @endforeach

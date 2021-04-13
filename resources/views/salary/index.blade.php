@@ -74,7 +74,7 @@
                                                                                 </div>
                                                     
                                                                                 <div class="form-group col-6">
-                                                                                    <label for="salary" class=" form-control-label">Salario al mes</label>
+                                                                                    <label for="salary" class=" form-control-label">Salario por hora</label>
                                                                                     <input type="number" step="0.01" id="salary" name="salary" class="form-control" value="{{ $salary->salary }}">
                                                                                     @error('salary')
                                                                                         <code>{{ $message }}</code>
@@ -149,7 +149,7 @@
                                 </div>
     
                                 <div class="form-group col-6">
-                                    <label for="salary" class=" form-control-label">Salario al mes</label>
+                                    <label for="salary" class=" form-control-label">Salario por hora</label>
                                     <input type="number" id="salary" step="0.01" name="salary" class="form-control">
                                     @error('salary')
                                         <code>{{ $message }}</code>

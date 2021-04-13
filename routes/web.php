@@ -13,14 +13,22 @@ Route::middleware(['auth'])->group(function () {
 
         //Resource controller
         Route::resource('salary', SalaryController::class);
+
         Route::resource('employee', EmployeeController::class);
+        Route::get('employee/showpay/{payroll}', 'EmployeeController@showpay')->name('employee.showpay');
         Route::post('employee/status', 'EmployeeController@status')->name('employee.status');
         Route::post('employee/payroll', 'EmployeeController@payroll')->name('employee.payroll');
+        Route::post('employee/payrollAll', 'EmployeeController@payrollAll')->name('employee.payrollAll');
+
         Route::resource('provider', ProviderController::class);
+
         Route::resource('product', ProductController::class);
         Route::post('product/status', 'ProductController@status')->name('product.status');
+
         Route::resource('customer', CustomerController::class);
+
         Route::resource('package', PackageController::class);
+        
         Route::resource('party', PartyController::class);
         Route::post('party/status', 'PartyController@status')->name('party.status');
         Route::get('parties/all', 'PartyController@all')->name('parties.all');

@@ -6,6 +6,7 @@ use App\Models\Employee;
 use App\Models\Salary;
 use Illuminate\Http\Request;
 use App\Http\Requests\EmployeeRequest;
+use App\Http\Requests\PayrollRequest;
 use App\Models\Payroll;
 use Carbon\Carbon;
 
@@ -13,9 +14,10 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::paginate(5);
+        $employees = Employee::paginate(10);
         $salaries = Salary::all();
-        return view('employee.index', compact(['employees', 'salaries']));
+        $now = new Carbon();
+        return view('employee.index', compact(['employees', 'salaries', 'now']));
     }
 
     public function create()
@@ -67,6 +69,12 @@ class EmployeeController extends Controller
         return redirect()->route('employee.index')->with('status', 'Se cambio el estatus del empleado' . $employee->name .' ' . $employee->lastname);
     }
 
+    //Payroll
+    public function showpay(Payroll $payroll)
+    {
+        return view('employee.showpay', compact('payroll'));
+    }
+
     public function payroll(Request $request)
     {
         if ($request) {
@@ -82,4 +90,23 @@ class EmployeeController extends Controller
             return redirect()->route('employee.index')->with('status', 'Se genero la nomina de todos los empleados');   
         }
     }
+
+    public function payrollAll(PayrollRequest $request)
+    {
+        $employee = Employee::find($request->id);
+        if ($employee->status == true) {
+            $payroll = new Payroll();
+
+            $payroll->employee_id = $employee->id;
+            $payroll->salaries_id = $employee->salary->id;
+            $payroll->hours = $request->hours;
+            $payroll->total = $employee->salary->salary * $request->hours;
+
+            $payroll->save();
+            return redirect()->route('employee.showpay', $payroll)->with('status', 'Se genero la nomina del empleado' . $employee->name);  
+        } else {
+            return redirect()->route('employee.index')->with('status', 'Problemas al generar nomina' . $employee->name);  
+        }
+    }  
+
 }

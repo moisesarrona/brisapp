@@ -24,12 +24,12 @@
                                 <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#add">
                                     <i class="zmdi zmdi-plus"></i>Agregar
                                 </button>
-                                <form action="{{route ('employee.payroll') }}" method="POST">
+                                <!--<form action="{{route ('employee.payroll') }}" method="POST">
                                     @csrf
                                     <button class="au-btn au-btn-icon au-btn--blue au-btn--small">
                                         Genrar nomina
                                     </button>
-                                </form>
+                                </form>-->
                             </div>
                         </div>
 
@@ -238,6 +238,56 @@
                                                             <i class="zmdi zmdi-rotate-right"></i>
                                                         </button>
                                                     </form>
+
+                                                    <!-- Payroll -->
+                                                    @if ($employee->status == true )
+                                                        <!-- Payroll -->
+                                                        <button class="item" data-toggle="modal" data-target="#payroll{{ $employee->id }}">
+                                                            <i class="zmdi zmdi-file-text"></i>
+                                                        </button>
+                                                        <!-- Modal Payroll -->
+                                                        <div class="modal fade" id="payroll{{ $employee->id }}" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+                                                            <div class="modal-dialog modal-lg" role="document">
+                                                                <div class="modal-content">
+                                                                    <form action="{{ route('employee.payrollAll') }}" method="post">
+                                                                        @csrf
+                                                                        <!-- Head -->
+                                                                        <div class="card-header">
+                                                                            <strong>Nomina Individual </strong> {{ $employee->name }} {{ $employee->lastname }}
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                        </div>
+                                                        
+                                                                        <!-- Inputs -->
+                                                                        <div class="modal-body">
+                                                                            <div class="card-body card-block">                                                  
+                                                                                <div class="row">
+                                                                                    <div class="form-group col-6">
+                                                                                        <input type="hidden" name="id" value="{{ $employee->id }}">
+
+                                                                                        <label for="hours" class=" form-control-label">Horas Trabajadas</label>
+                                                                                        <input type="number" id="hours" name="hours" class="form-control">
+                                                                                        @error('hours')
+                                                                                            <code>{{ $message }}</code>
+                                                                                        @enderror
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        
+                                                                        <!-- Buttons -->
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                            <button type="submit" class="btn btn-success">Guardar</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+
+                                                    <!-- {{ $employee->payroll()->first()}} -->
                                                 </div>
                                             </td>
                                         </tr>
