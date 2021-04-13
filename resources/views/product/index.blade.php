@@ -115,14 +115,13 @@
                                                                                     @enderror
                                                                                 </div>
                                                     
-                                                                                <!--
                                                                                 <div class="form-group col-6">
                                                                                     <label for="amount" class=" form-control-label">Existencia</label>
                                                                                     <input type="number" id="amount" name="amount" class="form-control" value="{{ $product->amount }}">
                                                                                     @error('amount')
                                                                                         <code>{{ $message }}</code>
                                                                                     @enderror
-                                                                                </div>-->
+                                                                                </div>
                                                                             </div>
                                                     
                                                                             <div class="row">
@@ -248,14 +247,13 @@
                                      @enderror
                                 </div>
     
-                                <!--
                                 <div class="form-group col-6">
                                     <label for="amount" class=" form-control-label">Existencia</label>
                                     <input type="number" id="amount" name="amount" class="form-control">
                                     @error('amount')
                                         <code>{{ $message }}</code>
                                      @enderror
-                                </div>-->
+                                </div>
                             </div>
     
                             <div class="row">
