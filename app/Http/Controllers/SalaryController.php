@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Salary;
+use App\Models\Employee;
 use Illuminate\Http\Request;
 use App\Http\Requests\SalaryRequest;
 
@@ -47,6 +48,13 @@ class SalaryController extends Controller
 
     public function destroy(Salary $salary)
     {
+        $employee = Employee::all();
+        foreach ($employee as $value) {
+            if ($value->salary_id == $salary->id) {
+                $value->status = 0;
+                $value->save();
+            }
+        }
         $salary->delete();
         return redirect()->route('salary.index')->with('status', 'Se ha eliminado el salario');
     }

@@ -48,7 +48,11 @@
                                     <br>
                                     <br>
 
-                                    <h5>{{ $product->provider->business_n }}</h5>
+                                    <h5>
+                                        @isset($product->provider->business_n)
+                                            {{ $product->provider->business_n }}
+                                        @endisset
+                                    </h5>
                                     <span class="small">Proveedor</span>
                                     <br>
                                     <br>

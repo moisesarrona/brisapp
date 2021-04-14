@@ -64,8 +64,16 @@
                                 <tbody>
                                     @foreach ($parties as $party)
                                         <tr class="tr-shadow">
-                                            <td>{{ $party->customer->name }} {{ $party->customer->lastname }}</td>
-                                            <td>{{ $party->package->name }}</td>
+                                            <td>
+                                                @isset($party->customer->name)
+                                                    {{ $party->customer->name }} {{ $party->customer->lastname }}
+                                                @endisset
+                                            </td>
+                                            <td>
+                                                @isset($party->package->name)
+                                                    {{ $party->package->name }}
+                                                @endisset
+                                            </td>
                                             <td>{{ \Carbon\Carbon::parse($party->date)->toFormattedDateString() }}</td>
                                             <td>{{ $party->kid }}</td>
                                             <td>{{ $party->created_at->diffForHumans() }}</td>

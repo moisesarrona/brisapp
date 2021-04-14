@@ -25,13 +25,20 @@
                                 <div class="card-text text-sm-left">
                                     
                                     <h5 class="text-black">
-                                        <a href="{{ route('employee.show', $party->customer->id) }}">{{ $party->customer->name }}</a>
+                                        <a href="{{ route('employee.show', $party->customer->id) }}">
+                                        @isset($party->customer->name)
+                                            {{ $party->customer->name }}
+                                        @endisset</a>
                                     </h5>
                                     <span class="small">Cliente</span>
                                     <br>
                                     <br>
 
-                                    <h5>{{ $party->package->name }}</h5>
+                                    <h5>
+                                        @isset($party->package->name)
+                                            {{ $party->package->name }}
+                                        @endisset
+                                    </h5>
                                     <span class="small">Paquete</span>
                                     <br>
                                     <br>

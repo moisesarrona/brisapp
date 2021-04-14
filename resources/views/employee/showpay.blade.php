@@ -84,7 +84,11 @@
 
                                             <td class="w-50">
                                                 <div class="table-data__info pb-4">
-                                                    <h6>{{ $payroll->employee->salary->salary }}</h6>
+                                                    <h6>
+                                                        @isset($payroll->employee->salary->salary)
+                                                        {{ $payroll->employee->salary->salary }}
+                                                        @endisset
+                                                    </h6>
                                                     <span>
                                                         <a href="#">Salario por Hora</a>
                                                     </span>

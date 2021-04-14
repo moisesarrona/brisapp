@@ -75,22 +75,6 @@ class EmployeeController extends Controller
         return view('employee.showpay', compact('payroll'));
     }
 
-    public function payroll(Request $request)
-    {
-        if ($request) {
-            $employees = Employee::all()->where('status', '=', true);
-            foreach ($employees as $employee) {
-                $payroll = new Payroll();
-                $payroll->employee_id = $employee->id;
-                $payroll->salaries_id = $employee->salary->id;
-                $payroll->hours = 0;
-                $payroll->total = $employee->salary->salary;
-                $payroll->save();
-            }
-            return redirect()->route('employee.index')->with('status', 'Se genero la nomina de todos los empleados');   
-        }
-    }
-
     public function payrollAll(PayrollRequest $request)
     {
         $employee = Employee::find($request->id);
@@ -98,7 +82,7 @@ class EmployeeController extends Controller
             $payroll = new Payroll();
 
             $payroll->employee_id = $employee->id;
-            $payroll->salaries_id = $employee->salary->id;
+            $payroll->salary_id = $employee->salary->id;
             $payroll->hours = $request->hours;
             $payroll->total = $employee->salary->salary * $request->hours;
 

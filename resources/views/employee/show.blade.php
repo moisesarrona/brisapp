@@ -65,7 +65,11 @@
 
                                     <div class="d-flex">
                                         <div class="w-50 text-left">
-                                            <h5>{{ $employee->salary->salary }}</h5>
+                                            <h5>
+                                                @isset( $employee->salary->salary)
+                                                    {{ $employee->salary->salary }}
+                                                @endisset
+                                            </h5>
                                             <span class="small">Salario</span>
                                             <br>
                                             <br>

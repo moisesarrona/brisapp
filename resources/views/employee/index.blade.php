@@ -43,7 +43,8 @@
                                         <th>Fecha de Nacimiento</th>
                                         <th>Sexo</th>
                                         <th>Estatus</th>
-                                        <th></th>
+                                        <th>Puesto</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,6 +60,11 @@
                                                 @else
                                                     <span class="status--denied">Inactivo</span>
                                                 @endif
+                                            </td>
+                                            <td>
+                                                @isset($employee->salary->name)
+                                                    {{ $employee->salary->name }}
+                                                @endisset
                                             </td>
                                             <td>
                                                 <div class="table-data-feature">
@@ -151,7 +157,7 @@
                                                                                         <select name="salary_id" id="salary_id" class="form-control">
                                                                                             <option value="true">Seleciona el Salario</option>
                                                                                             @foreach ($salaries as $salary)
-                                                                                            <option value="{{ $salary->id }}" {{ $salary->id == $employee->salary_id ? 'selected' : '' }}>{{ $salary->salary }}</option>
+                                                                                            <option value="{{ $salary->id }}" {{ $salary->id == $employee->salary_id ? 'selected' : '' }}>{{ $salary->salary . ' ' . $salary->name }}</option>
                                                                                             @endforeach
                                                                                         </select>
                                                                                     </div>
@@ -286,7 +292,6 @@
                                                             </div>
                                                         </div>
                                                     @endif
-
                                                     <!-- {{ $employee->payroll()->first()}} -->
                                                 </div>
                                             </td>
