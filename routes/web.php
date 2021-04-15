@@ -19,6 +19,7 @@ Route::middleware(['auth'])->group(function () {
         Route::post('employee/status', 'EmployeeController@status')->name('employee.status');
         Route::post('employee/payroll', 'EmployeeController@payroll')->name('employee.payroll');
         Route::post('employee/payrollAll', 'EmployeeController@payrollAll')->name('employee.payrollAll');
+        Route::post('employee/pdf', 'EmployeeController@pdf')->name('employee.pdf');
 
         Route::resource('provider', ProviderController::class);
 

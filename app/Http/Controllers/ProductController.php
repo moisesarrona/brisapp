@@ -53,6 +53,7 @@ class ProductController extends Controller
         return redirect()->route('product.index')->with('status', 'Se ha eliminado el producto');
     }
 
+    //Status of product
     public function status (Request $request)
     {
         $product = Product::find($request->id);

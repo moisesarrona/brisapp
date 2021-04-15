@@ -9,6 +9,7 @@ use App\Http\Requests\EmployeeRequest;
 use App\Http\Requests\PayrollRequest;
 use App\Models\Payroll;
 use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class EmployeeController extends Controller
 {
@@ -92,5 +93,13 @@ class EmployeeController extends Controller
             return redirect()->route('employee.index')->with('status', 'Problemas al generar nomina' . $employee->name);  
         }
     }  
+
+    //Generate PDF
+    public function pdf (Request $request) 
+    {
+        $payroll = Payroll::where('employee_id', '=', $request->employee_id)->where('id', '=', $request->payroll_id)->first();
+        $pdf = PDF::loadView('employee.pdf', compact('payroll'));
+        return $pdf->stream('pdf.pdf');
+    }
 
 }
