@@ -21,8 +21,8 @@
                                 </a>
                             </div>
                             <div class="table-data__tool-right d-flex">
-                                <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#add">
-                                    <i class="zmdi zmdi-plus"></i>Agregar
+                                <button class="au-btn au-btn-icon au-btn--gray au-btn--small" data-toggle="modal" data-target="#add">
+                                    <i class="zmdi zmdi-plus"></i>Generar Nomina
                                 </button>
                                 <!--<form action="{{route ('employee.payroll') }}" method="POST">
                                     @csrf

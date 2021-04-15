@@ -25,7 +25,8 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {
         $status = true;
-        $request->request->add(['status' => $status]);
+        $amount = 0;
+        $request->request->add(['status' => $status, 'amount' => $amount]);
         Product::create($request->all());
         return redirect()->route('product.index')->with('status', 'Se ha creado un nuevo producto: ' . $request->name);
     }
@@ -64,7 +65,14 @@ class ProductController extends Controller
         }
         $product->save();
         return redirect()->route('product.index');
+    }
 
-
+    public function amount (Request $request)
+    {
+        $product = Product::find($request->id);
+        
+        $product->amount = $request->amount + $product->amount;
+        $product->save();
+        return redirect()->route('product.show', $product);
     }
 }
