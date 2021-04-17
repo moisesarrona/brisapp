@@ -142,7 +142,7 @@
                                                                             <div class="row">
                                                                                 <div class="form-group col-6">
                                                                                     <label for="date" class=" form-control-label">Fecha</label>
-                                                                                    <input type="datetime-local" id="date" name="date" class="form-control" value="{{ $party->date }}">
+                                                                                    <input type="datetime-local" id="date" name="date" class="form-control" value="{{Carbon\Carbon::parse($party->date)->format('Y-m-d\TH:i') }}">
                                                                                     @error('date')
                                                                                         <code>{{ $message }}</code>
                                                                                     @enderror

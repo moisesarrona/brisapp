@@ -21,6 +21,21 @@
                     <div class="col-md-8">
                         <div class="top-campaign">
                             <h3 class="title-3 m-b-30">Fiesta No. {{ $party->id }}</h3>
+                            <div class="d-flex">
+                                <div class="d-flex mb-4 w-100">
+
+                                    <!-- Cambiar status -->
+                                    @if (Carbon\Carbon::parse($party->date)->format('d-m-Y h') == Carbon\Carbon::parse($now)->format('d-m-Y h') && $party->status == false )
+                                        <form action="{{ route('party.status') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" value="{{ $party->id  }}" name="id">
+                                            <button class="au-btn au-btn-icon au-btn--green au-btn--small"  type="submit">
+                                                Resolver Fiesta
+                                            </button>
+                                        </form>
+                                    @endif
+                                </div>
+                            </div>
                             <div class="table-responsive">
                                 <div class="card-text text-sm-left">
                                     
