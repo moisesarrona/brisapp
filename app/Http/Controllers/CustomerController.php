@@ -44,7 +44,7 @@ class CustomerController extends Controller
     public function update(CustomerRequest $request, Customer $customer)
     {
         $customer->update($request->all());
-        return redirect()->route('customer.index')->with('status', 'Se ha editado el cliente');
+        return redirect()->route('customer.index')->with('status', 'Se ha editado el cliente: ' . $customer->name . ' ' . $customer->lastname);
     }
 
     public function destroy(Customer $customer)

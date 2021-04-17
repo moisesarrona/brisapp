@@ -39,7 +39,7 @@ class PackageController extends Controller
     public function update(PackageRequest $request, Package $package)
     {
         $package->update($request->all());
-        return redirect()->route('package.index')->with('status', 'Se ha editado el paquete');
+        return redirect()->route('package.index')->with('status', 'Se ha editado el paquete: ' .$package->name);
     }
 
     public function destroy(Package $package)

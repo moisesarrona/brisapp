@@ -49,7 +49,7 @@ class EmployeeController extends Controller
     public function update(EmployeeRequest $request, Employee $employee)
     {
         $employee->update($request->all());
-        return redirect()->route('employee.index')->with('status', 'Se ha editado el empelado');
+        return redirect()->route('employee.index')->with('status', 'Se ha editado el empelado: ' . $employee->name);
     }
 
     public function destroy(Employee $employee)

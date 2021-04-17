@@ -43,7 +43,7 @@ class SalaryController extends Controller
     public function update(SalaryRequest $request, Salary $salary)
     {
         $salary->update($request->all());
-        return redirect()->route('salary.index')->with('status', 'Se ha editado correctamente el salario');
+        return redirect()->route('salary.index')->with('status', 'Se ha editado el salario: ' . $request->name);
     }
 
     public function destroy(Salary $salary)

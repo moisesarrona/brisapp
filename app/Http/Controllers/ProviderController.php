@@ -32,36 +32,17 @@ class ProviderController extends Controller
         return view('provider.show', compact('provider'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Provider  $provider
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Provider $provider)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Provider  $provider
-     * @return \Illuminate\Http\Response
-     */
     public function update(ProviderRequest $request, Provider $provider)
     {
         $provider->update($request->all());
-        return redirect()->route('provider.index')->with('status', 'Se ha editado el proveedor');
+        return redirect()->route('provider.index')->with('status', 'Se ha editado el proveedor: ' . $request->business_n);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Provider  $provider
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Provider $provider)
     {
         $provider->delete();

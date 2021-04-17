@@ -45,7 +45,7 @@ class ProductController extends Controller
     public function update(ProductRequest $request, Product $product)
     {
         $product->update($request->all());
-        return redirect()->route('product.index')->with('status', 'Se ha editado el producto');
+        return redirect()->route('product.index')->with('status', 'Se ha editado el producto: ' . $product->name);
     }
 
     public function destroy(Product $product)
@@ -64,7 +64,7 @@ class ProductController extends Controller
             $product->status = true;
         }
         $product->save();
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('status', 'Se cambio el estatus del producto: ' . $product->name);
     }
 
     public function entry (Request $request)
@@ -73,7 +73,7 @@ class ProductController extends Controller
         
         $product->amount = $request->amount + $product->amount;
         $product->save();
-        return redirect()->route('product.show', $product)->with('status', 'Se realizo la entrada de producto');
+        return redirect()->route('product.show', $product)->with('status', 'Se realizo la entrada de producto de: ' .$request->amount);
     }
 
     public function out (Request $request)
@@ -83,9 +83,9 @@ class ProductController extends Controller
         $product->amount = $product->amount - $request->amount;
         if ($product->amount >= 0) {
             $product->save();
-            return redirect()->route('product.show', $product)->with('status', 'Se realizo la salida de producto');
+            return redirect()->route('product.show', $product)->with('status', 'Se realizo la salida de producto: ' . $request->amount);
         } else {
-            return redirect()->route('product.show', $product)->with('error', 'No puedes dejar almacen negativo');
+            return redirect()->route('product.show', $product)->with('error', 'No puedes dejar almacen negativo, intenta de nuevo');
         }
     }
 }
