@@ -67,12 +67,25 @@ class ProductController extends Controller
         return redirect()->route('product.index');
     }
 
-    public function amount (Request $request)
+    public function entry (Request $request)
     {
         $product = Product::find($request->id);
         
         $product->amount = $request->amount + $product->amount;
         $product->save();
-        return redirect()->route('product.show', $product);
+        return redirect()->route('product.show', $product)->with('status', 'Se realizo la entrada de producto');
+    }
+
+    public function out (Request $request)
+    {
+        $product = Product::find($request->id);
+        
+        $product->amount = $product->amount - $request->amount;
+        if ($product->amount >= 0) {
+            $product->save();
+            return redirect()->route('product.show', $product)->with('status', 'Se realizo la salida de producto');
+        } else {
+            return redirect()->route('product.show', $product)->with('error', 'No puedes dejar almacen negativo');
+        }
     }
 }

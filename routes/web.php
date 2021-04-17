@@ -25,7 +25,8 @@ Route::middleware(['auth'])->group(function () {
 
         Route::resource('product', ProductController::class);
         Route::post('product/status', 'ProductController@status')->name('product.status');
-        Route::post('product/amount', 'ProductController@amount')->name('product.amount');
+        Route::post('product/entry', 'ProductController@entry')->name('product.entry');
+        Route::post('product/out', 'ProductController@out')->name('product.out');
 
         Route::resource('customer', CustomerController::class);
 
