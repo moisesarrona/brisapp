@@ -1,7 +1,7 @@
 # BrisApp 💙
 ### Web aplication for Mije
 
-This aplication developed for Briss
+This application web automate processes in "Enjoy", register employees, customers, and register entries outputs the products and other functions very important, monitor the parties, and see in a calendar .
 
 ### Technologies 💻
 - HTML5
@@ -27,47 +27,31 @@ Download the project
 Create database db_brisapp (mysql)
 
 ### Step 3
-Open the project in Code Editor (Visual Studio Code)
+Open the project path in the terminal
 
-### Step 4
-Open the terminal in Visual Studio Code
-
-### Step 5
-Write in terminal
-````
-composer install
-````
-
-### Step 6
-Write in terminal
-````
-cp .env.example .env
-````
-
-### Step 7
-Write in terminal
-````
-php artisan key:generate
-````
-
-### Step 8
-Write in terminal
+### Step 4 
+Write in the terminal 
 ````
 php artisan migrate
 ````
-and
+and after
 ````
 php artisan db:seed
 ````
 
-### Step 9
-Write in terminal
+### Step 5
 ````
 php artisan serve
 ````
 
+### Step 6
+Log in  with this credentials
+````
+email: administrador@enjoy.com
+password: Admin123
+````
 
-### Step 10
+### Step 7
 Enjoy the project my friend
 
 #### Follow me 👨‍💻
