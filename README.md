@@ -24,13 +24,31 @@ This application web automate processes in "Enjoy", register employees, customer
 Download the project
 
 ### Step 2
-Create database db_brisapp (mysql)
-
-### Step 3
 Open the project path in the terminal
 
-### Step 4 
-Write in the terminal 
+### Step 3
+Update dependeces with
+````
+composer update
+`````
+
+### Step 4
+Copy development file
+````
+cp .env.example .env
+````
+
+### Step 5
+Generate key to hashing
+````
+php artisan key:generate
+`````
+
+### Step 6
+Modify file .env with your credentials mysql
+
+### Step 7
+Run migration and seeders with
 ````
 php artisan migrate
 ````
@@ -39,19 +57,19 @@ and after
 php artisan db:seed
 ````
 
-### Step 5
+### Step 8
 ````
 php artisan serve
 ````
 
-### Step 6
+### Step 9
 Log in  with this credentials
 ````
 email: administrador@enjoy.com
 password: Admin123
 ````
 
-### Step 7
+### Step 10
 Enjoy the project my friend
 
 #### Follow me 👨‍💻
