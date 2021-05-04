@@ -50,11 +50,7 @@ Modify file .env with your credentials mysql
 ### Step 7
 Run migration and seeders with
 ````
-php artisan migrate
-````
-and after
-````
-php artisan db:seed
+php artisan migrate --seed
 ````
 
 ### Step 8
@@ -76,3 +72,4 @@ Enjoy the project my friend
 * [GitHub/moisesarrona](https://github.com/MoisesArrona/) - GitHub - Software Enginer
 
 * [Instagram/moisesarrona](https://www.instagram.com/moisesarrona/) - Instgram - Software Enginer
+
