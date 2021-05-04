@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
 
         //Factory
         Salary::factory(8)->create();
-        Employee::factory(15)->create();
+        Employee::factory(8)->create();
         Provider::factory(6)->create();
         Product::factory(24)->create();
         Customer::factory(30)->create();

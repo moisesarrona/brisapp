@@ -32,8 +32,9 @@ class PartyFactory extends Factory
             'package_id' => Package::factory(),
             'date' => $this->faker->dateTimeBetween($startDate = '-30 days', $endDate = '+30 days'),
             'kid' => $this->faker->numerify('#'),
-            'status' => true,
             'total' => 0,
+            //'status' => 'date' < $now->toDateTimeString('Y-m-d H:i:s') ? true : false,
+            'status' => false
         ];
     }
 }

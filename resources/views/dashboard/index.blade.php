@@ -59,7 +59,7 @@
                                     <p>Eventos de este mes mucho OJO</p>
                                 </div>
                                 <div class="au-task-list js-scrollbar3">
-                                    @foreach ($parties->sortBy('status') as $party)
+                                    @foreach ($parties->sortBy('status')->take(10) as $party)
                                         @if ($party->status == false)
                                             <div class="au-task__item au-task__item--danger">
                                                 <div class="au-task__item-inner">
@@ -92,7 +92,7 @@
                                 <div class="table-responsive">
                                     <table class="table table-top-countries">
                                         <tbody>
-                                            @foreach ($products->where('amount', '<', '11') as $key=>$product)
+                                            @foreach ($products->where('amount', '<', '11')->take(10)->sortBy('amount') as $key=>$product)
                                             <tr>
                                                 <td>
                                                     <span>
