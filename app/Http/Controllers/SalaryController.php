@@ -12,7 +12,7 @@ class SalaryController extends Controller
 
     public function index()
     {
-        $salaries = Salary::paginate(5);
+        $salaries = Salary::paginate(15);
         return view('salary.index', compact('salaries'));
     }
 

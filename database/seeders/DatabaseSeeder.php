@@ -27,12 +27,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         //Factory
-        Salary::factory(8)->create();
-        Employee::factory(8)->create();
-        Provider::factory(6)->create();
-        Product::factory(24)->create();
-        Customer::factory(30)->create();
-        Package::factory(5)->create();
-        Party::factory(20)->create();
+        Salary::factory(6)->create();
+        Employee::factory(12)->create();
+        Provider::factory(8)->create();
+        Product::factory(22)->create();
+        Customer::factory(28)->create();
+        Package::factory(13)->create();
+        Party::factory(58)->create();
     }
 }

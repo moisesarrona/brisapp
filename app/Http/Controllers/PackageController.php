@@ -11,7 +11,7 @@ class PackageController extends Controller
 
     public function index()
     {
-        $packages = Package::paginate(5);
+        $packages = Package::paginate(15);
         return view('package.index', compact('packages'));
     }
 

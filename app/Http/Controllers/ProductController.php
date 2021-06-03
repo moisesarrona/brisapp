@@ -13,7 +13,7 @@ class ProductController extends Controller
     public function index()
     {
         $providers = Provider::all();
-        $products = Product::paginate(5);
+        $products = Product::paginate(15);
         return view('product.index', compact(['products', 'providers']));
     }
 

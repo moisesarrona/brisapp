@@ -19,7 +19,7 @@ class PartyController extends Controller
         $customers = Customer::all();
         $packages = Package::select('id', 'name', 'price_e', $this->date())->get();
         //$parties = Party::orderBy('date', 'asc')->where('status', '=', false)->whereDate('date',  Party::raw('CURDATE()'))->paginate(5);
-        $parties = Party::orderBy('date', 'asc')->where('status', '=', false)->where('date',  '>=', $now->format('Y-m-d'))->paginate(5);
+        $parties = Party::orderBy('date', 'asc')->where('status', '=', false)->where('date',  '>=', $now->format('Y-m-d'))->paginate(15);
         $partiess = Party::all();
 
         return view('party.index', compact(['customers', 'packages', 'parties', 'partiess', 'now']));

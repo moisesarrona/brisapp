@@ -15,7 +15,7 @@ class EmployeeController extends Controller
 {
     public function index()
     {
-        $employees = Employee::paginate(10);
+        $employees = Employee::paginate(15);
         $salaries = Salary::all();
         $now = new Carbon();
         return view('employee.index', compact(['employees', 'salaries', 'now']));
