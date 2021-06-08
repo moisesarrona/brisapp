@@ -10,8 +10,10 @@ class Employee extends Model
 {
     use HasFactory;
 
+    //Masive
     protected $guarded = [];
 
+    //Relation
     public function salary() {
         return $this->belongsTo(Salary::class);
     }
@@ -19,4 +21,7 @@ class Employee extends Model
     public function payroll() {
         return $this->hasMany(Payroll::class);
     }
+
+    //Scope Filter
+    
 }
