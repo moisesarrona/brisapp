@@ -1,7 +1,7 @@
 # BrisApp 💙
 ### Web aplication for Mije
 
-This web application automate processes in "Enjoy", register employees, customers, and register entries outputs the products and other functions very important, monitor the parties, and see in a calendar...
+This web application automate processes in "Enjoy", register employees, customers, and register entries outputs the products and other functions very important, monitor the parties, and see in a calendar. Let's go!
 
 ### Technologies 💻
 - Laravel 8*
