@@ -75,6 +75,7 @@ password: Admin123
 Enjoy the project my friend
 
 ## Follow me 👨‍💻
+Coded and written by Moises
 Follow me for more projects and photos let's gooooo
 * [github/moisesarrona](https://github.com/MoisesArrona/)
 * [instagram/moisesarrona](https://www.instagram.com/moisesarrona/) 
