@@ -1,9 +1,10 @@
 # BrisApp 💙
-### Web aplication for Mije
-
 This web application automate processes in "Enjoy", register employees, customers, and register entries outputs the products and other functions very important, monitor the parties, and see in a calendar. Let's go!
 
-### Technologies 💻
+Version 0.0.0   
+Description: Deleted dependencies deprecated.
+
+## Technologies 💻
 - Laravel 8*
     - Migration (Create DB)
     - Seeders (Insert DB)
@@ -18,7 +19,7 @@ This web application automate processes in "Enjoy", register employees, customer
 - Carbon 2.4* (DateTime)
 - Faker 1.9* (Data faker)
 
-### Requirements 📋
+## Requirements 📋
 - Apache2
 - MySQL
 - Composer
@@ -74,8 +75,8 @@ password: Admin123
 ### Step 10
 Enjoy the project my friend
 
-## Follow me 👨‍💻
-Coded and written by Moises
-Follow me for more projects and photos let's gooooo
-* [github/moisesarrona](https://github.com/MoisesArrona/)
-* [instagram/moisesarrona](https://www.instagram.com/moisesarrona/) 
+### About me 👨‍💻
+Hi, my name is Moises Arrona I'm creator this api, follow me in for more projects
+
+- [GitHub/moisesarrona](https://github.com/mosesarrona)
+- [Instagram/moisesarrona](https://www.instagram.com/moisesarrona/)
