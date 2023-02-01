@@ -35,6 +35,7 @@ Description: Deleted dependencies deprecated.
 
 ### Step 1
 Download the project
+~ ❯ git clone https://github.com/moisesarrona/brisapp.git
 
 ### Step 2
 Update dependeces with
@@ -45,13 +46,13 @@ composer update
 ### Step 3
 Copy development file
 ```
-cp .env.example .env
+~ ❯ cp .env.example .env
 ```
 
 ### Step 4
 Generate key to hashing
 ```
-php artisan key:generate
+~ ❯ php artisan key:generate
 ```
 
 ### Step 5
@@ -60,12 +61,12 @@ Modify file .env with your credentials mysql
 ### Step 6
 Run migration and seeders with
 ````
-php artisan migrate --seed
+~ ❯ php artisan migrate --seed
 ````
 
 ### Step 7
 ````
-php artisan serve
+~ ❯ php artisan serve
 ````
 
 ### Step 8
