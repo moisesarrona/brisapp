@@ -20,59 +20,63 @@ Description: Deleted dependencies deprecated.
 - Faker 1.9* (Data faker)
 
 ## Requirements 📋
-- Apache2
-- MySQL
-- Composer
+- PHP ^7.3 - ^8.0
+- MySQL 5.7.39
+- Apache2 
+- Composer 
 - Git
+
+## Install enviroment 
+- install brew
+    - install php - brew install php
+    - install composer - brew install composer
 
 ## Setup 🚀
 
 ### Step 1
 Download the project
+~ ❯ git clone https://github.com/moisesarrona/brisapp.git
 
 ### Step 2
-Open the project path in the terminal
-
-### Step 3
 Update dependeces with
 ```
 composer update
 ```
 
-### Step 4
+### Step 3
 Copy development file
 ```
-cp .env.example .env
+~ ❯ cp .env.example .env
+```
+
+### Step 4
+Generate key to hashing
+```
+~ ❯ php artisan key:generate
 ```
 
 ### Step 5
-Generate key to hashing
-```
-php artisan key:generate
-```
-
-### Step 6
 Modify file .env with your credentials mysql
 
-### Step 7
+### Step 6
 Run migration and seeders with
 ````
-php artisan migrate --seed
+~ ❯ php artisan migrate --seed
+````
+
+### Step 7
+````
+~ ❯ php artisan serve
 ````
 
 ### Step 8
-````
-php artisan serve
-````
-
-### Step 9
 Log in  with this credentials
 ````
 email: administrador@enjoy.com
 password: Admin123
 ````
 
-### Step 10
+### Step 9
 Enjoy the project my friend
 
 ### About me 👨‍💻
