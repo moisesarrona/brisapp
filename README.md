@@ -1,8 +1,8 @@
 # BrisApp 💙
 This web application automate processes in "Enjoy", register employees, customers, and register entries outputs the products and other functions very important, monitor the parties, and see in a calendar. Let's go!
 
-Version 0.0.0   
-Description: Deleted dependencies deprecated.
+Version 0.0.1   
+Description: Update dependecies, fixing dependency dompdf
 
 ## Technologies 💻
 - Laravel 8*
