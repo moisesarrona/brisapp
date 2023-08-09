@@ -1,7 +1,7 @@
 # BrisApp 💙
 This web application automate processes in "Enjoy", register employees, customers, and register entries outputs the products and other functions very important, monitor the parties, and see in a calendar. Let's go!
 
->__v0.0.1__   
+>__v0.0.2__   
 __Author:__ [@moisesarrona](https://github.com/mosesarrona)  
 __Description:__ Update dependecies, fixing dependency dompdf
 
