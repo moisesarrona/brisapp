@@ -26,9 +26,9 @@
                 <div class="login-wrap">
                     <div class="login-content">
                         <div class="login-logo">
-                            <a href="#">
-                                <img src="{{ asset('images/logo.png') }}" alt="CoolAdmin">
-                            </a>
+                            <h1 class="text-primary">
+                                BrisApp
+                            </h1>
                         </div>
                         <div class="login-form">
                             <form method="POST" action="{{ route('login') }}">

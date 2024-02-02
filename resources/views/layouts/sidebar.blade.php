@@ -2,7 +2,7 @@
 <aside class="menu-sidebar2">
     <div class="logo">
         <a href="/">
-            <img src=" {{ asset ('assets/images/icon/logo-white.png') }}" alt="Cool Admin" />
+            <h1 class="text-white">BrissApp</h1>
         </a>
     </div>
     <div class="menu-sidebar2__content js-scrollbar1">
